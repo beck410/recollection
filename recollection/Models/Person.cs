@@ -34,5 +34,9 @@ namespace recollection.Models {
       this.Relationship = relationship;
       this.RelationshipType = RelationshipType;
     }
+
+    public Person() {
+
+    }
   }
 }
