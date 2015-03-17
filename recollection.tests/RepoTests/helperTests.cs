@@ -9,29 +9,32 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using recollection.repos;
 
+
 namespace recollection.tests.RepoTests {
+
   public class helperTests {
-  
-    private static NoteRepo note_repo;
-    private static PersonRepo person_repo;
-    private static PlaceRepo place_repo;
-    private static ImageRepo image_repo;
-    private static MemoryRepo memory_repo;
+    private static ApplicationDbContext userContext = new ApplicationDbContext();
+    private static recollectionContext context = new recollectionContext();
+    private static NoteRepo note_repo = new NoteRepo("Name=recollectionTest");
+    private static PersonRepo person_repo = new PersonRepo("Name=recollectionTest");
+    private static PlaceRepo place_repo = new PlaceRepo("Name=recollectionTest");
+    private static ImageRepo image_repo = new ImageRepo("Name=recollectionTest");
+    private static MemoryRepo memory_repo = new MemoryRepo("Name=recollectionTest");
+
+    public static ApplicationUser firstUser() {
+      ApplicationUser user = userContext.Users.First();
+      return user;
+    }
 
     public static void seedData() {
-      ApplicationDbContext userContext = new ApplicationDbContext();
-      recollectionContext context = new recollectionContext();
-     
-      ApplicationUser user = userContext.Users.Where(x => x.UserName == "jsmith@gmail.com").First();
-
+      var user = userContext.Users.First();
       var people = new List<Person>{
             new Person { Name = "Peter Smith", UserID = user.Id, Birthday = new DateTime(1980, 05, 07), Address = "123 Fake Street", Phone = "1234567890", Relationship = "son", RelationshipType = "Family" },
 
             new Person { Name = "Mary Smith", UserID = user.Id, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "wife", RelationshipType = "Family" }
           };
 
-      people.ForEach(c => context.Persons.Add(c));
-      context.SaveChanges();
+      people.ForEach(c => person_repo.Add(c));
 
       int peterId = context.Persons.Where(c => c.Name == "Peter Smith").First().ID;
       int maryId = context.Persons.Where(c => c.Name == "Mary Smith").First().ID;
@@ -41,9 +44,7 @@ namespace recollection.tests.RepoTests {
             new Place { Address = "103 Fake Street", Name = "Home", UserID = user.Id }
           };
 
-
-      places.ForEach(c => context.Places.Add(c));
-      context.SaveChanges();
+      places.ForEach(c => place_repo.Add(c));
 
       int cronullaId = context.Places.Where(c => c.Name == "Cronulla Beach").First().ID;
       int homeId = context.Places.Where(c => c.Name == "Home").First().ID;
@@ -54,16 +55,14 @@ namespace recollection.tests.RepoTests {
             new Memory { PersId = maryId, Message = "Mary is very kind and patient. She likes roses and country music. We were married in Australia and raised 3 children together. We met on a cruise" },
             new Memory { PersId = peterId, Message = "Peter is my oldest son and second child. He loves football and is an engineer. We go fishing every Saturday" }
           };
-      memories.ForEach(c => context.Memories.Add(c));
-      context.SaveChanges();
+      memories.ForEach(c => memory_repo.Add(c));
 
       var notes = new List<Note> {
             new Note { LocationID = cronullaId, Message = "fish and chips are great at the kiosk" },
             new Note { PersId = peterId, Message = "Peter has 2 children - Ruth and Bobby" },
             new Note { PersId = maryId, Message = "Mary has 1 sisters - Rachel" }
           };
-      notes.ForEach(c => context.Notes.Add(c));
-      context.SaveChanges();
+      notes.ForEach(c => note_repo.Add(c));
     }
 
     public static void ClearAllDB() { 
