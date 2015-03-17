@@ -13,5 +13,15 @@ namespace recollection.Models {
     public ICollection<Memory> Memories { get; set; }
     public ICollection<Note> Notes { get; set; }
     public ICollection<Image> Images { get; set; }
+
+    public Place() {
+
+    }
+
+    public Place(string user_id, string name, string address) {
+      this.UserID = user_id;
+      this.Name = name;
+      this.Address = address;
+    }
   }
 }
