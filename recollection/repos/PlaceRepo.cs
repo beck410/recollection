@@ -1,4 +1,5 @@
-﻿using recollection.Models;
+﻿using recollection.Context;
+using recollection.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,32 +8,53 @@ using System.Web;
 namespace recollection.repos {
   public class PlaceRepo : IPlaceRepo{
 
+    private recollectionContext _dbContext;
+
+    public PlaceRepo(string connection="recollectionDBContext") {
+      _dbContext = new recollectionContext(connection);
+    }
+
     public Place GetById(int id) {
-      throw new NotImplementedException();
+      return _dbContext.Places.Where(x => x.ID == id).First<Place>();
     }
 
     public List<Place> GetAllByUserId(string userID) {
-      throw new NotImplementedException();
+      return _dbContext.Places.Where(c => c.UserID == userID).ToList();
     }
 
-    public Place Delete(int id) {
-      throw new NotImplementedException();
+    public void Delete(int id) {
+      var place = _dbContext.Places.Where(x => x.ID == id);
+      _dbContext.Places.RemoveRange(place);
+      _dbContext.SaveChanges();
     }
 
-    public Place Add(Person place) {
-      throw new NotImplementedException();
+    public void Add(Place place) {
+      _dbContext.Places.Add(place);
+      _dbContext.SaveChanges();
     }
 
-    public Place Edit(Person place) {
-      throw new NotImplementedException();
+    public void Edit(Place place) {
+      var query = _dbContext.Places.Where(c => c.ID == place.ID);
+
+      foreach(Place dbPlace in query){
+        dbPlace.Address = place.Address;
+        dbPlace.Name = place.Name;
+      }
+      _dbContext.SaveChanges();
     }
 
     public void Clear() {
-      throw new NotImplementedException();
+      var places = this.All();
+      _dbContext.Places.RemoveRange(places);
+      _dbContext.SaveChanges();
     }
 
     public int GetCount() {
-      throw new NotImplementedException();
+      return _dbContext.Places.Count();
+    }
+
+    public List<Place> All() {
+      return _dbContext.Places.ToList();
     }
   }
 }

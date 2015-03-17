@@ -9,10 +9,11 @@ namespace recollection.repos {
   interface IPlaceRepo {
     Place GetById(int id);
     List<Place> GetAllByUserId(string userID);
-    Place Delete(int id);
-    Place Add(Person place);
-    Place Edit(Person place);
+    void Delete(int id);
+    void Add(Place place);
+    void Edit(Place place);
     void Clear();
     int GetCount();
+    List<Place> All();
   }
 }
