@@ -7,7 +7,7 @@ using System.Web;
 namespace recollection.Models {
   public class Image {
     public int ID { get; set; }
-    public int PersonID { get; set; }
+    public int PersID { get; set; }
     public int LocationID { get; set; }
     [Required]
     public string Category { get; set; }

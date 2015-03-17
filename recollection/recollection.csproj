@@ -189,6 +189,16 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repos\IImageRepo.cs" />
+    <Compile Include="repos\ImageRepo.cs" />
+    <Compile Include="repos\IMemoryRepo.cs" />
+    <Compile Include="repos\INoteRepo.cs" />
+    <Compile Include="repos\IPersonRepo.cs" />
+    <Compile Include="repos\IPlaceRepo.cs" />
+    <Compile Include="repos\MemoryRepo.cs" />
+    <Compile Include="repos\NoteRepo.cs" />
+    <Compile Include="repos\PersonRepo.cs" />
+    <Compile Include="repos\PlaceRepo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -250,7 +260,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="repos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
