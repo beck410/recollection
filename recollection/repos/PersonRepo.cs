@@ -23,8 +23,8 @@ namespace recollection.repos {
     }
 
     public void Delete(int id) {
-      var project = _dbContext.Persons.Where(x => x.ID == id);
-      _dbContext.Persons.RemoveRange(project);
+      var person = _dbContext.Persons.Where(x => x.ID == id);
+      _dbContext.Persons.RemoveRange(person);
       _dbContext.SaveChanges();
     }
 
