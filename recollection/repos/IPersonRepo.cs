@@ -9,10 +9,11 @@ namespace recollection.repos {
   interface IPersonRepo {
     Person GetById(int id);
     List<Person> GetAllByUserId(string userID);
-    Person Delete(int id);
-    Person Add(Person person);
-    Person Edit(Person person);
+    void Delete(int id);
+    void Add(Person person);
+    void Edit(Person person);
     void Clear();
     int GetCount();
+    List<Person> All();
   }
 }
