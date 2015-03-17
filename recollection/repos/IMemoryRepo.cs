@@ -13,5 +13,7 @@ namespace recollection.repos {
     Memory Edit(Person person);
     List<Memory> GetAllPlaceMemories(int placeId);
     List<Memory> GetAllPersonMemories(int personId);
+    void Clear();
+    int GetCount();
   }
 }

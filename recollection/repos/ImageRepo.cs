@@ -24,5 +24,13 @@ namespace recollection.repos {
     public Models.Image GetPersonImages(int personId) {
       throw new NotImplementedException();
     }
+
+    public void Clear() {
+      throw new NotImplementedException();
+    }
+
+    public int GetCount() {
+      throw new NotImplementedException();
+    }
   }
 }

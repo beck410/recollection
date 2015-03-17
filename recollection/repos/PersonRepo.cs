@@ -2,26 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using recollection.Models;
 
 namespace recollection.repos {
   public class PersonRepo : IPersonRepo {
-    public Models.Person GetById(int id) {
+
+    public Person GetById(int id) {
       throw new NotImplementedException();
     }
 
-    public List<Models.Person> GetAllByUserId(string userID) {
+    public List<Person> GetAllByUserId(string userID) {
       throw new NotImplementedException();
     }
 
-    public Models.Person Delete(int id) {
+    public Person Delete(int id) {
       throw new NotImplementedException();
     }
 
-    public Models.Person Add(Models.Person person) {
+    public Person Add(Person person) {
       throw new NotImplementedException();
     }
 
-    public Models.Person Edit(Models.Person person) {
+    public Person Edit(Person person) {
+      throw new NotImplementedException();
+    }
+
+    public void Clear() {
+      throw new NotImplementedException();
+    }
+
+    public int GetCount() {
       throw new NotImplementedException();
     }
   }

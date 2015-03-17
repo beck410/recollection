@@ -12,5 +12,7 @@ namespace recollection.repos {
     Image Edit(Image image);
     Image GetPlaceImages(int placeId);
     Image GetPersonImages(int personId);
+    void Clear();
+    int GetCount();
   }
 }

@@ -12,5 +12,7 @@ namespace recollection.repos {
     Person Delete(int id);
     Person Add(Person person);
     Person Edit(Person person);
+    void Clear();
+    int GetCount();
   }
 }
