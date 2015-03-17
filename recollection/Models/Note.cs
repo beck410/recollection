@@ -8,7 +8,7 @@ namespace recollection.Models {
   public class Note {
     [Required]
     public int ID {get; set;}
-    public int PersonID {get; set;}
+    public int PersId {get; set;}
     public int LocationID {get; set;}
     [Required]
     [StringLength(100,ErrorMessage = "Must be less than 100 characters")]
@@ -16,6 +16,10 @@ namespace recollection.Models {
 
     public Note(string message) {
       this.Message = message;
+    }
+
+    public Note() {
+
     }
   }
 }
