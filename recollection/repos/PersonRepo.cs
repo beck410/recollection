@@ -34,7 +34,18 @@ namespace recollection.repos {
     }
 
     public void Edit(Person person) {
-      throw new NotImplementedException();
+      var query = _dbContext.Persons.Where(c => c.ID == person.ID);
+
+      foreach(Person dbPerson in query) {
+        dbPerson.Address = person.Address;
+        dbPerson.Birthday = person.Birthday;
+        dbPerson.Name = person.Name;
+        dbPerson.Phone = dbPerson.Phone;
+        dbPerson.Relationship = dbPerson.Relationship;
+        dbPerson.RelationshipType = dbPerson.RelationshipType;
+      }
+
+      _dbContext.SaveChanges();
     }
 
     public void Clear() {

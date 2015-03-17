@@ -94,5 +94,14 @@ namespace recollection.tests.RepoTests {
       int peopleCount = person_repo.GetCount();
       Assert.AreEqual(2, peopleCount);
     }
+
+    [TestMethod]
+    public void PersonTestEditMethod() {
+      Person paul = person_repo.All()[0];
+      paul.Relationship = "Father";
+      person_repo.Edit(paul);
+      Person newPaul = person_repo.All()[0];
+      Assert.AreEqual("Father", newPaul.Relationship);
+    }
   }
 }
