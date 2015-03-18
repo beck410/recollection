@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 namespace recollection.repos {
   interface IMemoryRepo {
     Memory GetById(int id);
-    Memory Delete(int id);
-    Memory Add(Person person);
-    Memory Edit(Person person);
+    void Delete(int id);
+    void Add(Memory memory);
+    void Edit(Memory memory);
     List<Memory> GetAllPlaceMemories(int placeId);
     List<Memory> GetAllPersonMemories(int personId);
     void Clear();
     int GetCount();
+    List<Memory> All();
   }
 }
