@@ -14,8 +14,15 @@ namespace recollection.Models {
     [StringLength(100,ErrorMessage = "Must be less than 100 characters")]
     public string Message {get; set;}
 
-    public Note(string message) {
+    public Note(string message,bool isPers,int objId) {
       this.Message = message;
+
+      if (isPers) {
+        this.PersId = objId;
+      }
+      else {
+        this.LocationID = objId;
+      }
     }
 
     public Note() {
