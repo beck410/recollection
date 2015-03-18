@@ -14,5 +14,6 @@ namespace recollection.repos {
     Image GetPersonImages(int personId);
     void Clear();
     int GetCount();
+    List<Image> All();
   }
 }

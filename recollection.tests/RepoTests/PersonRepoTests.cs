@@ -81,6 +81,7 @@ namespace recollection.tests.RepoTests {
     [TestMethod]
     public void PersonTestAddMethod() {
       int peopleCount = person_repo.All().Count;
+      Assert.AreEqual(2, peopleCount);
       Person ruth = new Person(user.Id, "Ruth Smith", "1045 Fake Street", "1234567898", new DateTime(1960, 04, 03), "sister", "Family");
 
       person_repo.Add(ruth);
