@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 namespace recollection.repos {
   interface INoteRepo {
     Note GetById(int id);
-    Note Delete(int id);
-    Note Add(Note note);
-    Note Edit(Note note);
+    void Delete(int id);
+    void Add(Note note);
+    void Edit(Note note);
     List<Note> GetAllPlaceNotes(int placeId);
     List<Note> GetAllPersonNotes(int personId);
     int GetCount();
     void Clear();
+    List<Note> All();
   }
 }
