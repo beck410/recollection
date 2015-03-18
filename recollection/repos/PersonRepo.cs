@@ -52,7 +52,6 @@ namespace recollection.repos {
       var people = this.All();
       _dbContext.Persons.RemoveRange(people);
       _dbContext.SaveChanges();
-      
     }
 
     public int GetCount() {
