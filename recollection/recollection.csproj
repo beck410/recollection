@@ -183,6 +183,18 @@
     <Compile Include="Migrations\201503172027569_g.Designer.cs">
       <DependentUpon>201503172027569_g.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503180256096_f.cs" />
+    <Compile Include="Migrations\201503180256096_f.Designer.cs">
+      <DependentUpon>201503180256096_f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503180323480_g1.cs" />
+    <Compile Include="Migrations\201503180323480_g1.Designer.cs">
+      <DependentUpon>201503180323480_g1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503180327503_k.cs" />
+    <Compile Include="Migrations\201503180327503_k.Designer.cs">
+      <DependentUpon>201503180327503_k.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Image.cs" />
@@ -278,6 +290,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503172027569_g.resx">
       <DependentUpon>201503172027569_g.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503180256096_f.resx">
+      <DependentUpon>201503180256096_f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503180323480_g1.resx">
+      <DependentUpon>201503180323480_g1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503180327503_k.resx">
+      <DependentUpon>201503180327503_k.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

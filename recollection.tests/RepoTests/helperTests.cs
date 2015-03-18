@@ -63,6 +63,12 @@ namespace recollection.tests.RepoTests {
             new Note { PersId = maryId, Message = "Mary has 1 sisters - Rachel" }
           };
       notes.ForEach(c => note_repo.Add(c));
+
+      var images = new List<Image> {
+            new Image { ImageLink = "http://i.huffpost.com/gen/1623986/images/o-WOMEN-LAUGHING-facebook.jpg", Caption = "Mary laughing", PersID = maryId, DateOfImage = new DateTime(2013,05,01)},
+            new Image { ImageLink = "http://www.sutherlandshireaustralia.com.au/imagesDB/gallery/CronullaSlideshow6_1.jpg", LocationID = cronullaId, Caption = "Nice day out with family at the beach", DateOfImage = new DateTime(2000,10,05) }
+         };
+      images.ForEach(c => image_repo.Add(c));
     }
 
     public static void ClearAllDB() { 
