@@ -14,10 +14,10 @@ namespace recollection.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        private void AddUsers(ApplicationDbContext context){
+        private void AddUsers(ApplicationDbContext context) {
           if (!(context.Users.Any(u => u.UserName == "jsmith@gmail.com"))) {
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
@@ -73,6 +73,6 @@ namespace recollection.Migrations
           };
           notes.ForEach(s => context.Notes.AddOrUpdate(c => c.Message, s));
           context.SaveChanges();
-        }
+        } 
     }
 }

@@ -21,7 +21,8 @@ namespace recollection
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer<recollectionContext>(
-             new DropCreateDatabaseIfModelChanges<recollectionContext>());
+             null
+            );
         }
     }
 }

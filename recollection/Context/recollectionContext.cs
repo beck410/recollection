@@ -9,6 +9,7 @@ namespace recollection.Context {
   public class recollectionContext : DbContext{
 
     public recollectionContext(string connection="recollectionContext") : base(connection) {
+
     }
 
     public recollectionContext(){}
