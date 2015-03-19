@@ -14,6 +14,7 @@ namespace recollection.Controllers
     {
       private PersonRepo person_repo = new PersonRepo();
       private PlaceRepo place_repo = new PlaceRepo();
+      private MemoryRepo memory_repo = new MemoryRepo();
 
       //PERSON DB
       // GET: /api/Recollection/Persons/userID
@@ -79,7 +80,7 @@ namespace recollection.Controllers
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
 
-      //GET: api/Places/userID/ID
+      //GET: api/Recollection/Places/userID/ID
       [HttpGet]
       [Route("Places/{userID}/{id}")]
       public System.Web.Mvc.JsonResult SinglePlace(string userID, int id) {
@@ -89,7 +90,7 @@ namespace recollection.Controllers
         return json;
       }
 
-      //PUT: api/Places/userID/Update/ID
+      //PUT: api/Recollection/Places/userID/Update/ID
       [HttpPut]
       [Route("Places/{userID}/Update/{id}")]
       public HttpResponseMessage UpdatePlace([FromBody] Place place) {
@@ -97,12 +98,68 @@ namespace recollection.Controllers
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
 
-      //DELETE: api/Places/userID/Delete/ID
+      //DELETE: api/Recollection/Places/userID/Delete/ID
       [HttpDelete]
       [Route("Places/{userID}/Delete/{id}")]
       public HttpResponseMessage DeletePlace(int id) {
         place_repo.Delete(id);
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
+
+      //MEMORIES
+      //GET: api/Recollection/Memories/Places/placeID
+      [HttpGet]
+      [Route("Memories/Places/{id}")]
+      public System.Web.Mvc.JsonResult PlaceMemories(int id) {
+        var places = memory_repo.GetAllPlaceMemories(id);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { places };
+        return json;
+      } 
+      //GET: api/Recollection/Memories/Persons/placeID
+      [HttpGet]
+      [Route("Memories/Persons/{id}")]
+      public System.Web.Mvc.JsonResult PersonMemories(int id) {
+        var persons = memory_repo.GetAllPersonMemories(id);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { persons };
+        return json;
+      } 
+      //GET: api/Recollection/Memories/ID
+      [HttpGet]
+      [Route("Memories/{id}")]
+      public System.Web.Mvc.JsonResult Memory(int id) {
+        var memory = memory_repo.GetById(id);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { memory };
+        return json;
+      } 
+      //PUT: api/Recollection/Memory/Update/ID
+      [HttpPut]
+      [Route("Memories/Update/{id}")]
+      public HttpResponseMessage UpdateMemory([FromBody] Memory memory) {
+        memory_repo.Edit(memory);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      }
+
+      //DELETE: api/Recollection/Memories/Delete/ID
+      [HttpDelete]
+      [Route("Memories/Delete/{id}")]
+      public HttpResponseMessage DeleteMemory(int id) {
+        memory_repo.Delete(id);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      }
+
+      //NOTES
+      //GET: api/Recollection/Notes/Places/placeID
+      //GET: api/Recollection/Notes/Persons/placeID
+      //GET: api/Recollection/Notes/Place/ID
+      //GET: api/Recollection/Notes/Person/ID
+      //PUT: api/Recollection/Notes/Place/PlaceID/ID
+      //PUT: api/Recollection/Notes/Person/PersonID/ID
+      //DELETE: api/Recollection/Notes/Place/PlaceID/ID
+      //DELETE: api/Recollection/Notes/Person/PlaceID/ID
+      //EDIT: api/Recollection/Notes/Place/PlaceID/ID
+      //EDIT: api/Recollection/Notes/Person/PersonID/ID
     }
 }
