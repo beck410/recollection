@@ -220,10 +220,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Angular\js\controllers\people.controller.js" />
+    <Content Include="Angular\js\controllers\places.controller.js" />
     <Content Include="Angular\recollection.html" />
-    <Content Include="Angular\js\config\dashboard.config.js" />
+    <Content Include="Angular\js\config\main.config.js" />
     <Content Include="Angular\js\controllers\dashboard.controller.js" />
     <Content Include="Angular\js\main.js" />
+    <Content Include="Angular\views\people.html" />
+    <Content Include="Angular\views\places.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -1058,7 +1062,6 @@
     <Content Include="Views\App\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Angular\views\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
