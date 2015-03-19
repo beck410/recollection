@@ -24,7 +24,11 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/AngularCore")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/App/js/main.js"></script>
+    <script src="~/App/js/config/dashboard.config.js"></script>
+    <script src="~/App/js/controllers/dashboard.controller.js"></script>
 </body>
 </html>

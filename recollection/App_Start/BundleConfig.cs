@@ -24,9 +24,6 @@ namespace recollection {
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
 
-      bundles.Add(new ScriptBundle("~/bundles/AngularCore").Include(
-                  "~/Scripts/angular.js",
-                  "~/Scripts/angular-route.js"));
     }
   }
 }

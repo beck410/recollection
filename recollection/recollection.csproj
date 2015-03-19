@@ -220,6 +220,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\recollection.html" />
+    <Content Include="App\js\config\dashboard.config.js" />
+    <Content Include="App\js\controllers\dashboard.controller.js" />
+    <Content Include="App\js\main.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -1054,6 +1058,7 @@
     <Content Include="Views\App\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\views\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
