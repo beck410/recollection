@@ -1,11 +1,12 @@
-﻿; (function () {
+﻿;(function() {
     'use strict';
     angular.module('recollection')
     .config(function ($routeProvider) {
         $routeProvider
         .when('/', {
             templateUrl: '/Angular/recollection.html',
-            Controller: 'dashboardController'
+            Controller: 'dashboardController',
+            ControllerAs: 'db'
         })
         .when('/People', {
             templateUrl: '/Angular/views/people.html',
