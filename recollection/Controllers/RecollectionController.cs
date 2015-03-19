@@ -16,6 +16,7 @@ namespace recollection.Controllers
       private PlaceRepo place_repo = new PlaceRepo();
       private MemoryRepo memory_repo = new MemoryRepo();
       private NoteRepo notes_repo = new NoteRepo();
+      private ImageRepo image_repo = new ImageRepo();
 
       //PERSON DB
       // GET: /api/Recollection/Persons/userID
@@ -192,6 +193,50 @@ namespace recollection.Controllers
       [Route("Notes/Delete/{id}")]
       public HttpResponseMessage DeleteNote(int id) {
         notes_repo.Delete(id);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      }
+
+      //IMAGES
+      //GET: api/Recollection/Images/Place/placeID
+      [HttpGet]
+      [Route("Images/Place/{id}")]
+      public System.Web.Mvc.JsonResult PlaceImages(int id) {
+        var images = image_repo.GetPlaceImages(id);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { images };
+        return json;
+      } 
+      //GET: api/Recollection/Images/Person/placeID
+      [HttpGet]
+      [Route("Images/Person/{id}")]
+      public System.Web.Mvc.JsonResult PersonImages(int id) {
+        var images = image_repo.GetPersonImages(id);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { images };
+        return json;
+      } 
+      //GET: api/Recollection/Image/ID
+      [HttpGet]
+      [Route("Images/{id}")]
+      public System.Web.Mvc.JsonResult Image(int id) {
+        var image = image_repo.GetById(id);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { image };
+        return json;
+      } 
+      //PUT: api/Recollection/Images/Update/ID
+      [HttpPut]
+      [Route("Images/Update/{id}")]
+      public HttpResponseMessage UpdateImage([FromBody] Image image) {
+        image_repo.Edit(image);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      }
+
+      //DELETE: api/Recollection/Images/Delete/ID
+      [HttpDelete]
+      [Route("Images/Delete/{id}")]
+      public HttpResponseMessage DeleteImage(int id) {
+        image_repo.Delete(id);
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
 
