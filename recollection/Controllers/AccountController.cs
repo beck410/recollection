@@ -79,7 +79,7 @@ namespace recollection.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                return RedirectToAction("Index", "App");
+                return RedirectToAction("Index", "App");  
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
