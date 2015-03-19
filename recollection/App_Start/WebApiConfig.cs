@@ -16,7 +16,7 @@ namespace recollection
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{userID}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
