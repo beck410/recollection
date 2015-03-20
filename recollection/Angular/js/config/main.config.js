@@ -5,16 +5,18 @@
         $routeProvider
         .when('/', {
             templateUrl: '/Angular/recollection.html',
-            Controller: 'dashboardController',
-            ControllerAs: 'db'
+            controller: 'dashboardController',
+            controllerAs: 'db'
         })
         .when('/People', {
             templateUrl: '/Angular/views/people.html',
-            Controller: 'peopleController'
+            controller: 'peopleController',
+            controllerAs: 'people'
         })
         .when('/Places', {
             templateUrl: '/Angular/views/places.html',
-            Controller: 'placesController'
+            controller: 'placesController',
+            controllerAs: 'places'
         })
     })
 })();

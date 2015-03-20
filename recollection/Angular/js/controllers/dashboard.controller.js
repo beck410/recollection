@@ -4,6 +4,6 @@
     .controller('dashboardController', function () {
         var vm = this;
 
-        vm.test = "test";
+        vm.test = "db controller works";
     })
 })();
