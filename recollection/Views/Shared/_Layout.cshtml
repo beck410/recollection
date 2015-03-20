@@ -10,13 +10,13 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top main-menu">
-     <ul>
-        <li>@Html.ActionLink("Recollection","Index", "App")</li>
+    <div class=" navbar navbar-inverse main-menu">
+        <h1>Recollection</h1>
+     <ul class="login-modal">
         <li>@Html.Partial("_LoginPartial")</li>
         </ul>
     </div>
-    <div class="container body-content">
+    <div class="body-content cf">
         @RenderBody()
         <footer>
         </footer>

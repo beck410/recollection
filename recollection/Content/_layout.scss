@@ -1,5 +1,81 @@
-body, .main-menu
-{
+body, .main-menu {
     margin: 0 auto;
     max-width: 1020px;
+}
+
+body {
+    background: #E8E8E8; 
+}
+
+.navbar {
+    ul {
+        list-style-type: none;
+    }
+}
+
+.body-content{
+    .landing-container {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+.account-wrapper {
+    padding: 10px;
+}
+
+.ang-container {
+    overflow: hidden;
+    background: #222222;
+    .side-nav {
+        background: #222222;
+        height: 100%;
+        
+        ul{
+            list-style-type: none;
+            padding-top: 20px;
+
+            li {
+                padding-bottom: 10px;
+                font-size: 2em;
+
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.app-wrapper {
+    background: #fff;
+    min-height: 200px;
+}
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
 }

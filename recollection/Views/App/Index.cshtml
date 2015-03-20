@@ -2,18 +2,15 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Angular App</h2>
-
-<section ng-app="recollection" class="row">
-    <nav class="side-nav col-md-4">
+<section ng-app="recollection" class="ang-container cf">
+    <nav class="side-nav col-md-3">
         <ul>
             <li><a href="/App/Index/#/">Dashboard</a></li>
             <li><a href="/App/#/People">People</a></li>
             <li><a href="/App/#/Places">Places</a></li>
         </ul>
     </nav>
-    <div class="col-md-8" ng-view></div>
+    <div class="col-md-9 app-wrapper" ng-view></div>
 </section>  
 
 
