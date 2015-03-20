@@ -239,6 +239,5 @@ namespace recollection.Controllers
         image_repo.Delete(id);
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
-
     }
 }

@@ -230,6 +230,9 @@
     <Content Include="Angular\views\places.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dashboard.css">
+      <DependentUpon>dashboard.scss</DependentUpon>
+    </Content>
     <Content Include="Content\Images\landing-header%282%29.jpg" />
     <Content Include="Content\Images\recollection-header-lg.jpg" />
     <Content Include="Content\main.css">
