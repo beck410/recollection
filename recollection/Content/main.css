@@ -106,8 +106,18 @@ body {
       color: white;
       background: #222222; }
     .list-wrapper .list li {
-      padding-top: 10px; }
+      padding-top: 10px;
+      position: relative; }
     .list-wrapper .list li:nth-child(4n+1) {
       clear: left; }
+    .list-wrapper .list .delete-sign {
+      background: red;
+      padding: 5px 10px;
+      border-radius: 50%;
+      color: white;
+      font-weight: 700;
+      position: absolute;
+      right: 0;
+      top: 0px; }
 
 /*# sourceMappingURL=main.css.map */

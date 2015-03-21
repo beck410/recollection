@@ -16,14 +16,20 @@
                 $location.path('/People/All');
             })
         }
-
-
     })
-    .controller('allPeopleController', function ($routeParams, apiFactory) {
+    .controller('allPeopleController', function ($routeParams, apiFactory,$scope, $timeout) {
         var vm = this;
         apiFactory.getPeople(function (people) {
             vm.people = people;
         })
+
+        vm.deletePerson = function (id, person) {
+            apiFactory.deletePeople(person.ID, function (personID) {
+                console.log(vm.people[id]);
+                delete vm.people[id];
+            })
+        }
+
     })
     .controller('FamilyPeopleController', function ($routeParams, apiFactory) {
         var vm = this;

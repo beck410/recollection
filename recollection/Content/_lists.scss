@@ -22,10 +22,22 @@
 
         li {
             padding-top: 10px;
+            position: relative;
         }
 
         li:nth-child(4n+1) {
         clear: left;
+        }
+
+        .delete-sign {
+            background: red;
+            padding: 5px 10px;
+            border-radius: 50%;
+            color: white;
+            font-weight: 700;
+            position: absolute;
+            right: 0;
+            top: 0px;
         }
     }
 

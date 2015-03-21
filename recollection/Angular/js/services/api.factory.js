@@ -67,14 +67,14 @@
             var url = API + 'persons/' + USERID;
             $http.post(url,person)
             .success(function (status) {
-                cb();
+                cb(person);
             })
             .error(function (err) {
                 console.log('post person error: ',err);
             })
         }
 
-        function _putPeople(place, cb) {
+        function _putPeople(person, cb) {
             var url = API + 'persons/' + USERID + '/UPDATE/' + place.ID;
             $http.put(url, person)
             .success(function(person) {
@@ -87,11 +87,10 @@
         }
 
         function _deletePeople(id, cb) {
-            var url = API + 'persons/' + USERID + '/DELETE/' + id;
+            var url = API + 'persons/DELETE/' + id;
             $http.delete(url)
             .success(function(status) {
-                console.log(status);
-                cb();
+                cb(id);
             })
             .error(function(err) {
                 console.log('delete person err',err);
