@@ -82,7 +82,7 @@ namespace recollection.tests.RepoTests {
     public void PersonTestAddMethod() {
       int peopleCount = person_repo.All().Count;
       Assert.AreEqual(2, peopleCount);
-      Person ruth = new Person(user.Id, "Ruth Smith", "1045 Fake Street", "1234567898", new DateTime(1960, 04, 03), "sister", "Family");
+      Person ruth = new Person(user.Id, "Ruth Smith", "1045 Fake Street", "1234567898", new DateTime(1960, 04, 03), "sister", "Family", "someimagelink");
 
       person_repo.Add(ruth);
       List<Person> updatedPeople = person_repo.All();
@@ -103,6 +103,18 @@ namespace recollection.tests.RepoTests {
       person_repo.Edit(paul);
       Person newPaul = person_repo.All()[0];
       Assert.AreEqual("Father", newPaul.Relationship);
+    }
+
+    [TestMethod]
+    public void PersonTestGetByRelationshipType() {
+      Person sue = new Person { Name = "Sue Thompson", UserID = user.Id, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "neighbour", RelationshipType = "Friend"};
+      Person Bob = new Person { Name = "Bob", UserID = user.Id, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "neighbour", RelationshipType = "Friend"};
+      person_repo.Add(sue);
+      person_repo.Add(Bob);
+      int friendCount = person_repo.getByRelationshipType("Friend").Count;
+      int famCount = person_repo.getByRelationshipType("Family").Count;
+      Assert.AreEqual(2, friendCount);
+      Assert.AreEqual(2, famCount);
     }
   }
 }

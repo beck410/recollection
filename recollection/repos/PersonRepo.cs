@@ -61,5 +61,9 @@ namespace recollection.repos {
     public List<Person> All() {
       return _dbContext.Persons.ToList();
     }
+
+    public List<Person> getByRelationshipType(string type) {
+      return _dbContext.Persons.Where(c => c.RelationshipType == type).ToList<Person>();
+    }
   }
 }

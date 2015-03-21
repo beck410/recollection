@@ -46,6 +46,16 @@ namespace recollection.Controllers
         json.Data = new { person };
         return json;
       }
+
+      //GET: api/Recollection/Persons/UserID/Type/RelationshipType
+      [HttpGet]
+      [Route("Persons/{userID}/Type/{relationshipType}")]
+      public System.Web.Mvc.JsonResult GetByRelationshipType(string userID, string relationshipType) {
+        var people = person_repo.getByRelationshipType(relationshipType);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { people };
+        return json;
+      }
       
       //PUT: api/Persons/userID/Update/ID
       [HttpPut]
