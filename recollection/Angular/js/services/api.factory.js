@@ -67,8 +67,7 @@
             var url = API + 'persons/' + USERID;
             $http.post(url,person)
             .success(function (status) {
-                console.log(status);
-                cb(person);
+                cb();
             })
             .error(function (err) {
                 console.log('post person error: ',err);

@@ -1,13 +1,20 @@
 ﻿; (function () {
     'use strict';
     angular.module('recollection')
-    .controller('peopleController', function ($routeParams, USERID, apiFactory) {
+    .controller('peopleController', function ($routeParams, USERID, apiFactory,$location) {
         var vm = this;
         vm.newPerson = { UserID: USERID };
 
         vm.clearForm = function () {
             vm.newPerson = { UserID: USERID };
             console.log("qefewqf");
+        }
+
+        vm.addNewPerson = function (){
+            apiFactory.postPeople(vm.newPerson, function () {
+                vm.newPerson = { UserID: USERID }
+                $location.path('/People/All');
+            })
         }
 
 
