@@ -5,7 +5,7 @@
             <accordion-heading>
                 Add New Person
             </accordion-heading>
-            <form name="people-list-add-form" ng--submit="people.addNewPerson()">
+            <form name="people-list-add-form" ng-submit="people.addNewPerson()">
                 <div class="form-group">
                     <label class="control-label">Relationship Type: </label>
                     <select ng-model="people.newPerson.RelationshipType">
@@ -39,7 +39,9 @@
                     <label class="control-label">Image Link: </label>
                     <input type="text" class="form-control" ng-model="people.newPerson.MainImage" />
                 </div>
+                <input class="btn" type="submit" value="Add Person">
             </form>
+            <button class="btn" ng-click="people.clearForm()">Clear</button>
         </accordion-group>
     </accordion>
     <div class="people-options row">

@@ -3,6 +3,13 @@
     angular.module('recollection')
     .controller('peopleController', function ($routeParams, USERID, apiFactory) {
         var vm = this;
+        vm.newPerson = { UserID: USERID };
+
+        vm.clearForm = function () {
+            vm.newPerson = { UserID: USERID };
+            console.log("qefewqf");
+        }
+
 
     })
     .controller('allPeopleController', function ($routeParams, apiFactory) {
