@@ -59,7 +59,14 @@ namespace recollection.Migrations
 
           var places = new List<Place> {
             new Place { Address = "Cronulla Beach, Sydney, Australia", UserID = userID ,Name = "Cronulla Beach", MainImage = "http://media-cdn.tripadvisor.com/media/photo-s/02/50/f2/a4/south-cronulla-beach.jpg" },
-            new Place { Address = "103 Fake Street", Name = "Home", UserID = userID, MainImage = "http://www.burkhartinsurance.com/wp-content/uploads/2011/12/home1.jpg" }
+
+            new Place { Address = "103 Fake Street", Name = "Home", UserID = userID, MainImage = "http://www.burkhartinsurance.com/wp-content/uploads/2011/12/home1.jpg" },
+
+            new Place { Address = "109 Fake Street", Name = "Peter's Home", UserID = userID, MainImage = "http://www.goodwinhouse.org/wp/wp-content/uploads/2012/08/certified-home-inspection-company.jpg" },
+
+            new Place { Address = "117 Jenner Parade", Name = "Whole Foods", UserID = userID, MainImage = "http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2013/08/whole-foods1.jpg" },
+
+            new Place { Address = "10 Bowling Lane", Name = "Nashville Lawn Bowls Club", UserID = userID, MainImage = "http://2.bp.blogspot.com/-QOgyf1ByQcQ/UZDw6TNopZI/AAAAAAAADZ0/pJztBOa7wyw/s1600/beac2006.jpg" }
           };
           places.ForEach(s => context.Places.AddOrUpdate(p => p.Name, s));
           context.SaveChanges();
