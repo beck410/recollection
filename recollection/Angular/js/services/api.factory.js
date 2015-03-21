@@ -99,6 +99,17 @@
             })
         }
 
+         function _getByRelationshipType(relationshipType,cb) {
+             var url = API + 'persons/' + USERID + '/Type/' + relationshipType;
+            $http.get(url)
+            .success(function (obj) {
+                cb(obj.Data.people);
+            })
+            .error(function(err){
+                console.log('get people  by relationship error: ',err);
+            })
+        }
+
 
         return {
             getPlaces: _getPlaces,
@@ -108,7 +119,8 @@
             getPeople: _getPeople,
             postPeople: _postPeople,
             putPeople: _putPeople,
-            deletePeople: _deletePeople
+            deletePeople: _deletePeople,
+            getByRelationshipType: _getByRelationshipType
         };
     });
 })();
