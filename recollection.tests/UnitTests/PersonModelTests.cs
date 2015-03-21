@@ -7,7 +7,7 @@ namespace recollection.tests.UnitTests {
   public class PersonModelTests {
     [TestMethod]
     public void PersonConstructorTestSuccess() {
-      Person bob = new Person("c1ad","Bob Smith","123 Fake Street","1234561234",new DateTime(2005,04,03),"Friend from Bowling Club","Friend");
+      Person bob = new Person("c1ad","Bob Smith","123 Fake Street","1234561234",new DateTime(2005,04,03),"Friend from Bowling Club","Friend", "www.someimage.com");
       Assert.AreEqual("c1ad", bob.UserID);
       Assert.AreEqual("Bob Smith", bob.Name);
       Assert.AreEqual("123 Fake Street", bob.Address);

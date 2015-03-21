@@ -70,7 +70,7 @@ namespace recollection.tests.RepoTests {
     public void PlaceTestAddMethod() {
       int placesCount = place_repo.All().Count;
       Assert.AreEqual(2, placesCount);
-      Place bank = new Place(user.Id, "Wells Fargo Bank", "2nd Street, Nashville");
+      Place bank = new Place(user.Id, "Wells Fargo Bank", "2nd Street, Nashville", "someimage");
 
       place_repo.Add(bank);
       List<Place> updatedPlace = place_repo.All();
