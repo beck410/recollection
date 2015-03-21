@@ -228,7 +228,8 @@
     <Content Include="Angular\js\controllers\places.controller.js" />
     <Content Include="Angular\js\filters\monthDayYear.filter.js" />
     <Content Include="Angular\js\main.constants.js" />
-    <Content Include="Angular\js\services\api.factory.js" />
+    <Content Include="Angular\js\services\apiPerson.factory.js" />
+    <Content Include="Angular\js\services\apiPlace.factory.js" />
     <Content Include="Angular\js\services\requestUrl.factory.js" />
     <Content Include="Angular\recollection.html" />
     <Content Include="Angular\js\config\main.config.js" />

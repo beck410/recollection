@@ -1,12 +1,12 @@
 ﻿;(function() {
     'use strict';
     angular.module('recollection')
-    .controller('placesController', function ($routeParams, apiFactory) {
+    .controller('placesController', function ($routeParams, apiPlace) {
         var vm = this;
 
 
 
-        apiFactory.getPlaces(function(places) {
+        apiPlace.getPlaces(function(places) {
             vm.places = places;
         })
 

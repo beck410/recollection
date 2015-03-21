@@ -1,7 +1,7 @@
 ﻿; (function () {
     'use strict';
     angular.module('recollection')
-    .controller('peopleController', function ($routeParams, USERID, apiFactory,$location) {
+    .controller('peopleController', function ($routeParams, USERID, $location) {
         var vm = this;
         vm.newPerson = { UserID: USERID };
 
@@ -17,14 +17,14 @@
             })
         }
     })
-    .controller('allPeopleController', function ($routeParams, apiFactory,$location,$modal) {
+    .controller('allPeopleController', function ($routeParams, apiPerson,$location,$modal) {
         var vm = this;
-        apiFactory.getPeople(function (people) {
+        apiPerson.getPeople(function (people) {
             vm.people = people;
         })
 
         vm.deletePerson = function (id, person) {
-            apiFactory.deletePeople(person.ID, function (personID) {
+            apiPerson.deletePeople(person.ID, function (personID) {
                 console.log(vm.people[id]);
                 delete vm.people[id];
             })
@@ -46,36 +46,33 @@
         }
 
     })
-    .controller('FamilyPeopleController', function ($routeParams, apiFactory) {
+    .controller('FamilyPeopleController', function ($routeParams, apiPerson) {
         var vm = this;
-        apiFactory.getByRelationshipType('Family',function (people) {
+        apiPerson.getByRelationshipType('Family',function (people) {
             vm.people = people;
         })
     })
-    .controller('FriendsPeopleController', function ($routeParams, apiFactory) {
+    .controller('FriendsPeopleController', function ($routeParams, apiPerson) {
         var vm = this;
-        apiFactory.getByRelationshipType('Friends',function (people) {
+        apiPerson.getByRelationshipType('Friends',function (people) {
             vm.people = people;
         })
     })
-    .controller('BusinessPeopleController', function ($routeParams, apiFactory) {
+    .controller('BusinessPeopleController', function ($routeParams, apiPerson) {
         var vm = this;
-        apiFactory.getByRelationshipType('Business',function (people) {
+        apiPerson.getByRelationshipType('Business',function (people) {
             vm.people = people;
         })
     })
-    .controller('OtherPeopleController', function ($routeParams, apiFactory) {
+    .controller('OtherPeopleController', function ($routeParams, apiPerson) {
         var vm = this;
-        apiFactory.getByRelationshipType('Other',function (people) {
+        apiPerson.getByRelationshipType('Other',function (people) {
             vm.people = people;
         })
     })
-    .controller('peopleModalController', function (person, $modalInstance) {
+    .controller('peopleModalController', function (person, $modalInstance, apiPerson) {
         var vm = this;
         vm.person = person;
-        console.log(vm.person);
-
-
 
         vm.cancel = function () {
             console.log('cancel clicked');
