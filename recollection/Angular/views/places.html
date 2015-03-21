@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    <div>Places</div>
-    <p>{{places.test}}</p>
-</body>
-</html>
+﻿<div class="row place-list-wrapper">
+    <h1>Places</h1>
+    <ul class="col-md-3 place-list" ng-repeat="(id,place) in places.places">
+        <li>
+            <img src="{{place.MainImage}}" class="place-list-img" alt="place image" />
+            <div class="place-list-name">{{place.Name}}</div>
+        </li>
+    </ul>
+</div>
+

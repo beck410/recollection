@@ -4,9 +4,11 @@
     .controller('placesController', function ($routeParams, apiFactory) {
         var vm = this;
 
-        //apiFactory.getPlaces(function(places) {
-        //    console.log(places);
-        //})
+
+
+        apiFactory.getPlaces(function(places) {
+            vm.places = places;
+        })
 
         //var place = {
         //    "ID": 6,

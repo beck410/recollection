@@ -1,0 +1,23 @@
+.place-list-wrapper, .people-list-wrapper {
+    padding-left: 10px;
+
+        h1 {
+            padding-left: 10px;
+        }
+
+    .place-list, .people-list {
+        list-style-type: none;
+        text-align: center;
+        margin-top: 10px;
+
+        .place-list-img, .people-list-img {
+            max-width: 100%;
+            border: 5px #222222 solid; 
+        }
+
+        .place-list-name, .people-list-name {
+            color: white;
+            background: #222222;
+        }
+    }
+}

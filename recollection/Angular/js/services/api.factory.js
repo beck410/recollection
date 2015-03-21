@@ -2,11 +2,12 @@
     'use strict';
     angular.module('recollection')
     .factory('apiFactory', function ($http, USERID,API) {
-
+        //PLACES
         function _getPlaces(cb) {
             var url = API + 'places/' + USERID
             $http.get(url)
             .success(function (obj) {
+                console.log(obj.Data.place);
                 cb(obj.Data.place);
             })
             .error(function(err){
