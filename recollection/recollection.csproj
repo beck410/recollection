@@ -233,6 +233,7 @@
     <Content Include="Angular\js\config\main.config.js" />
     <Content Include="Angular\js\controllers\dashboard.controller.js" />
     <Content Include="Angular\js\main.js" />
+    <Content Include="Angular\views\allPeople.html" />
     <Content Include="Angular\views\people.html" />
     <Content Include="Angular\views\places.html" />
     <Content Include="Content\bootstrap.css" />
@@ -294,7 +295,7 @@
     <Content Include="Content\_main-menu.scss" />
     <Content Include="Content\_landing.scss" />
     <Content Include="Content\dashboard.scss" />
-    <Content Include="Content\_places.scss" />
+    <Content Include="Content\_lists.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

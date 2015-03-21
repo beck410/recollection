@@ -13,6 +13,11 @@
             controller: 'peopleController',
             controllerAs: 'people'
         })
+        .when('/People/All', {
+            templateUrl: '/Angular/views/allPeople.html',
+            controller: 'allPeopleController',
+            controllerAs: 'all'
+        })
         .when('/Places', {
             templateUrl: '/Angular/views/places.html',
             controller: 'placesController',

@@ -5,7 +5,7 @@
             <accordion-heading>
                 Add New Person
             </accordion-heading>
-            <form name="people-list-add-form" ng--submit="people.addNewPerson()"> 
+            <form name="people-list-add-form" ng--submit="people.addNewPerson()">
                 <div class="form-group">
                     <label class="control-label">Relationship Type: </label>
                     <select ng-model="people.newPerson.RelationshipType">
@@ -32,12 +32,8 @@
                     <input type="text" class="form-control" ng-model="people.newPerson.Phone" />
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Address: </label>
-                    <input type="text" class="form-control" ng-model="people.newPerson.Address" />
-                </div>
-                <div class="form-group">
                     <label class="control-label">Birthday: </label>
-                    <datepicker ng-model="people.newPerson.Birthday" min-date="minDate" show-weeks="true" ></datepicker>
+                    <datepicker ng-model="people.newPerson.Birthday" min-date="minDate" show-weeks="true"></datepicker>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Image Link: </label>
@@ -46,12 +42,22 @@
             </form>
         </accordion-group>
     </accordion>
-
-    <ul class="row people-list">
-        <li class="col-md-3" ng-repeat="(id,people) in people.people">
-            <img src="{{people.MainImage}}" class="people-list-img" alt="people image" />
-            <div class="people-list-name">{{people.Name}}</div>
-        </li>
-    </ul>
+    <div class="people-options row">
+        <div class="col-md-2">
+            <a href="/App/#/People/All" class="btn">All</a>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-primary">Family</div>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-primary">Friends</div>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-primary">Business</div>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-primary">Other</div>
+        </div>
+    </div>
 </div>
 
