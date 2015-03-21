@@ -17,7 +17,7 @@
             })
         }
     })
-    .controller('allPeopleController', function ($routeParams, apiFactory,$scope, $timeout) {
+    .controller('allPeopleController', function ($routeParams, apiFactory,$location,$modal) {
         var vm = this;
         apiFactory.getPeople(function (people) {
             vm.people = people;
@@ -27,6 +27,21 @@
             apiFactory.deletePeople(person.ID, function (personID) {
                 console.log(vm.people[id]);
                 delete vm.people[id];
+            })
+        }
+
+        vm.personDetails = function (person) {
+            var modalInstance = $modal.open({
+                templateUrl: '/Angular/views/peopleModal.html',
+                controller: 'peopleModalController',
+                controllerAs: 'personDetails',
+                size: 'lg',
+                backdrop: false,
+                resolve: {
+                    person: function () {
+                        return person;
+                    }
+                }
             })
         }
 
@@ -54,5 +69,17 @@
         apiFactory.getByRelationshipType('Other',function (people) {
             vm.people = people;
         })
+    })
+    .controller('peopleModalController', function (person, $modalInstance) {
+        var vm = this;
+        vm.person = person;
+        console.log(vm.person);
+
+
+
+        vm.cancel = function () {
+            console.log('cancel clicked');
+            $modalInstance.dismiss('cancel');
+        };
     })
 })();
