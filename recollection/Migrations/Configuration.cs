@@ -33,12 +33,12 @@ namespace recollection.Migrations
 
           AddUsers(userContext);
 
-          ApplicationUser user = userContext.Users.Where(x => x.UserName == "jsmith@gmail.com").First();
+          string userID = "91818b2b-a2af-4e10-8fb4-362fd8780ba3";
 
           var people = new List<Person>{
-            new Person { Name = "Peter Smith", UserID = user.Id, Birthday = new DateTime(1980, 05, 07), Address = "123 Fake Street", Phone = "1234567890", Relationship = "son", RelationshipType = "Family", MainImage = "http://static.guim.co.uk/sys-images/Guardian/About/General/2013/1/3/1357230493554/Man-Booker-Prize-judges-p-011.jpg" },
+            new Person { Name = "Peter Smith", UserID = userID, Birthday = new DateTime(1980, 05, 07), Address = "123 Fake Street", Phone = "1234567890", Relationship = "son", RelationshipType = "Family", MainImage = "http://www.culligan.com/images/Culligan_NewMan.png" },
 
-            new Person { Name = "Mary Smith", UserID = user.Id, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "wife", RelationshipType = "Family", MainImage = "http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg " }
+            new Person { Name = "Mary Smith", UserID = userID, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "wife", RelationshipType = "Family", MainImage = "http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg " }
           };
 
           people.ForEach(s => context.Persons.AddOrUpdate(p => p.Name, s));
@@ -48,8 +48,8 @@ namespace recollection.Migrations
           int maryId = context.Persons.Where(c => c.Name == "Mary Smith").First().ID;
 
           var places = new List<Place> {
-            new Place { Address = "Cronulla Beach, Sydney, Australia", UserID = user.Id ,Name = "Cronulla Beach", MainImage = "http://media-cdn.tripadvisor.com/media/photo-s/02/50/f2/a4/south-cronulla-beach.jpg" },
-            new Place { Address = "103 Fake Street", Name = "Home", UserID = user.Id, MainImage = "https://www.google.com/search?q=home&es_sm=122&source=lnms&tbm=isch&sa=X&ei=hNYMVeeHKsOyggT9voR4&ved=0CAgQ_AUoAg&biw=1366&bih=681#imgrc=hF5QZ7_g1jy85M%253A%3Bs-I5On77Ca38jM%3Bhttp%253A%252F%252Fcdn.freshome.com%252Fwp-content%252Fuploads%252F2013%252F08%252Fselling-your-home-cedar-shingle-home.jpg%3Bhttp%253A%252F%252Ffreshome.com%252F2013%252F09%252F02%252Ftop-10-mistakes-when-selling-your-home%252F%3B1197%3B682" }
+            new Place { Address = "Cronulla Beach, Sydney, Australia", UserID = userID ,Name = "Cronulla Beach", MainImage = "http://media-cdn.tripadvisor.com/media/photo-s/02/50/f2/a4/south-cronulla-beach.jpg" },
+            new Place { Address = "103 Fake Street", Name = "Home", UserID = userID, MainImage = "http://www.burkhartinsurance.com/wp-content/uploads/2011/12/home1.jpg" }
           };
           places.ForEach(s => context.Places.AddOrUpdate(p => p.Name, s));
           context.SaveChanges();
