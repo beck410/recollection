@@ -9,6 +9,7 @@ namespace recollection.Models {
     public string UserID { get; set; }
     public string Name { get; set; }
     public string Address { get; set; }
+    public string MainImage { get; set; }
 
     public ICollection<Memory> Memories { get; set; }
     public ICollection<Note> Notes { get; set; }
@@ -18,10 +19,11 @@ namespace recollection.Models {
 
     }
 
-    public Place(string user_id, string name, string address) {
+    public Place(string user_id, string name, string address, string mainImage) {
       this.UserID = user_id;
       this.Name = name;
       this.Address = address;
+      this.MainImage = mainImage;
     }
   }
 }

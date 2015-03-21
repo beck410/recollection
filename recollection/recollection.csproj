@@ -197,6 +197,10 @@
     <Compile Include="Migrations\201503180327503_k.Designer.cs">
       <DependentUpon>201503180327503_k.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503210221574_mainimage-key.cs" />
+    <Compile Include="Migrations\201503210221574_mainimage-key.Designer.cs">
+      <DependentUpon>201503210221574_mainimage-key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Image.cs" />
@@ -1102,6 +1106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503180327503_k.resx">
       <DependentUpon>201503180327503_k.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503210221574_mainimage-key.resx">
+      <DependentUpon>201503210221574_mainimage-key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

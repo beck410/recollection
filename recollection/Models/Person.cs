@@ -9,6 +9,7 @@ namespace recollection.Models {
     public int ID { get; set; }
 
     public string UserID { get; set; }
+    public string MainImage { get; set; }
 
     //Friend, Family, Business, Other
     public string RelationshipType { get; set; }
@@ -25,7 +26,7 @@ namespace recollection.Models {
     public ICollection<Note> Notes { get; set; }
     public ICollection<Image> Images{ get; set; }
 
-    public Person(string userID, string name, string address, string phone, DateTime? birthday, string relationship, string RelationshipType) {
+    public Person(string userID, string name, string address, string phone, DateTime? birthday, string relationship, string RelationshipType, string mainImage) {
       this.UserID = userID;
       this.Name = name;
       this.Address = address;
@@ -33,6 +34,7 @@ namespace recollection.Models {
       this.Birthday = birthday;
       this.Relationship = relationship;
       this.RelationshipType = RelationshipType;
+      this.MainImage = mainImage;
     }
 
     public Person() {
