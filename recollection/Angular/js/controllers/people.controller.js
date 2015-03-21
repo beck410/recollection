@@ -1,10 +1,12 @@
 ﻿;(function() {
     'use strict';
     angular.module('recollection')
-    .controller('peopleController', function ($routeParams,USERID) {
+    .controller('peopleController', function ($routeParams,USERID,apiFactory) {
         var vm = this;
-        console.log(USERID);
 
-        vm.test = "does people controller work?";
+        apiFactory.getPeople(function(people) {
+            vm.people = people;
+        })
+
     })
 })();

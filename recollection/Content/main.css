@@ -91,4 +91,19 @@ body {
 .body-content {
   background: white; }
 
+.place-list-wrapper, .people-list-wrapper {
+  padding-left: 10px; }
+  .place-list-wrapper h1, .people-list-wrapper h1 {
+    padding-left: 10px; }
+  .place-list-wrapper .place-list, .place-list-wrapper .people-list, .people-list-wrapper .place-list, .people-list-wrapper .people-list {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 10px; }
+    .place-list-wrapper .place-list .place-list-img, .place-list-wrapper .place-list .people-list-img, .place-list-wrapper .people-list .place-list-img, .place-list-wrapper .people-list .people-list-img, .people-list-wrapper .place-list .place-list-img, .people-list-wrapper .place-list .people-list-img, .people-list-wrapper .people-list .place-list-img, .people-list-wrapper .people-list .people-list-img {
+      max-width: 100%;
+      border: 5px #222222 solid; }
+    .place-list-wrapper .place-list .place-list-name, .place-list-wrapper .place-list .people-list-name, .place-list-wrapper .people-list .place-list-name, .place-list-wrapper .people-list .people-list-name, .people-list-wrapper .place-list .place-list-name, .people-list-wrapper .place-list .people-list-name, .people-list-wrapper .people-list .place-list-name, .people-list-wrapper .people-list .people-list-name {
+      color: white;
+      background: #222222; }
+
 /*# sourceMappingURL=main.css.map */
