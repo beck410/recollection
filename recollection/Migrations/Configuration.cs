@@ -38,7 +38,17 @@ namespace recollection.Migrations
           var people = new List<Person>{
             new Person { Name = "Peter Smith", UserID = userID, Birthday = new DateTime(1980, 05, 07), Address = "123 Fake Street", Phone = "1234567890", Relationship = "son", RelationshipType = "Family", MainImage = "http://www.culligan.com/images/Culligan_NewMan.png" },
 
-            new Person { Name = "Mary Smith", UserID = userID, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "wife", RelationshipType = "Family", MainImage = "http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg " }
+            new Person { Name = "Mary Smith", UserID = userID, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "wife", RelationshipType = "Family", MainImage = "http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg " },
+
+            new Person { Name = "Alex Porter", UserID = userID, Birthday = new DateTime(1958, 05, 07), Address = "107 Fake Street", Phone = "5869385746", Relationship = "neighbor", RelationshipType = "Friends", MainImage = "http://i.telegraph.co.uk/multimedia/archive/01446/joan-bakewell_1446106c.jpg" },
+
+            new Person { Name = "Lenny Porter", UserID = userID, Birthday = new DateTime(1958, 03, 08), Address = "107 Fake Street", Phone = "5869385746", Relationship = "neighbor", RelationshipType = "Friends", MainImage = "http://richmonkey.co.uk/Older%20man%201.jpg"},
+
+            new Person { Name = "Denise Powell", UserID = userID, Birthday = new DateTime(1981, 05, 07), Address = "131 Cherry lane", Phone = "5864785746", Relationship = "Accountant", RelationshipType = "Business", MainImage = "http://rack.2.mshcdn.com/media/ZgkyMDEyLzEyLzA0LzFiL29uZXdvbWFuc3F1LmRBVS5qcGcKcAl0aHVtYgk5NTB4NTM0IwplCWpwZw/b3b3bbf3/5ed/one-woman-s-quest-to-change-the-ratio-in-tech-ee359104d9.jpg" },
+
+            new Person { Name = "Ken Robson", UserID = userID, Birthday = new DateTime(1966, 03, 08), Address = "172 Lodge Street", Phone = "5857385746", Relationship = "Electrician", RelationshipType = "Business", MainImage = "http://static3.businessinsider.com/image/52b235196bb3f776493e69dd/north-dakota-says-man-in-same-sex-marriage-can-also-marry-a-woman.jpg"},
+
+            new Person { Name = "Sheila Thompson", UserID = userID, Birthday = new DateTime(1953, 03, 08), Address = "191 Lodge Street", Phone = "5857384746", Relationship = "Respite Nurse", RelationshipType = "Other", MainImage = "http://blogcdn.nursingjobs.us/wp-content/uploads/2012/05/goodluz.jpg"},           
           };
 
           people.ForEach(s => context.Persons.AddOrUpdate(p => p.Name, s));

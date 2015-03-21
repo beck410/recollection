@@ -233,7 +233,7 @@
     <Content Include="Angular\js\config\main.config.js" />
     <Content Include="Angular\js\controllers\dashboard.controller.js" />
     <Content Include="Angular\js\main.js" />
-    <Content Include="Angular\views\allPeople.html" />
+    <Content Include="Angular\views\peopleCategory.html" />
     <Content Include="Angular\views\people.html" />
     <Content Include="Angular\views\places.html" />
     <Content Include="Content\bootstrap.css" />
