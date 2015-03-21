@@ -1,9 +1,10 @@
-﻿<div class="row place-list-wrapper">
+﻿<div class="list-wrapper">
     <h1>Places</h1>
-    <ul class="col-md-3 place-list" ng-repeat="(id,place) in places.places">
-        <li>
-            <img src="{{place.MainImage}}" class="place-list-img" alt="place image" />
-            <div class="place-list-name">{{place.Name}}</div>
+    <ul class="row list">
+        <li class="col-md-3" ng-repeat="(id,place) in places.places">
+            <img src="{{place.MainImage}}" class="list-img" alt="place image" />
+            <div class="list-item-name">{{place.Name}}</div>
+            <div class="list-item-name">{{place.Address}}</div>
         </li>
     </ul>
 </div>

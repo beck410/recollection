@@ -105,5 +105,9 @@ body {
     .list-wrapper .list .list-item-name {
       color: white;
       background: #222222; }
+    .list-wrapper .list li {
+      padding-top: 10px; }
+    .list-wrapper .list li:nth-child(4n+1) {
+      clear: left; }
 
 /*# sourceMappingURL=main.css.map */
