@@ -11,8 +11,8 @@
         margin-top: 10px;
 
         .list-img {
+            max-height: 200px;
             max-width: 100%;
-            border: 5px #222222 solid; 
         }
 
         .list-item-name {
@@ -29,17 +29,14 @@
         clear: left;
         }
 
-        .delete-sign {
-            background: red;
-            padding: 5px 10px;
-            border-radius: 50%;
-            color: white;
-            font-weight: 700;
-            position: absolute;
-            right: 0;
-            top: 0px;
+        .delete-btn {
+            @include delete-shape;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            background: #ccc;
+            border: 3px solid #222;
         }
     }
-
-
 }

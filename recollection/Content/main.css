@@ -2,13 +2,18 @@
 /* IMPORT */
 body, .main-menu {
   margin: 0 auto;
-  max-width: 1020px; }
+  max-width: 1200px;
+  width: 100%; }
 
 body {
   background: #E8E8E8; }
 
-.navbar ul {
+ul {
   list-style-type: none; }
+
+nav ul {
+  -webkit-padding-start: 0;
+  padding-left: 10px; }
 
 .body-content .landing-container {
   width: 100%;
@@ -100,8 +105,8 @@ body {
     text-align: center;
     margin-top: 10px; }
     .list-wrapper .list .list-img {
-      max-width: 100%;
-      border: 5px #222222 solid; }
+      max-height: 200px;
+      max-width: 100%; }
     .list-wrapper .list .list-item-name {
       color: white;
       background: #222222; }
@@ -110,7 +115,7 @@ body {
       position: relative; }
     .list-wrapper .list li:nth-child(4n+1) {
       clear: left; }
-    .list-wrapper .list .delete-sign {
+    .list-wrapper .list .delete-btn {
       background: red;
       padding: 5px 10px;
       border-radius: 50%;
@@ -119,5 +124,29 @@ body {
       position: absolute;
       right: 0;
       top: 0px; }
+    .list-wrapper .list .img-wrapper {
+      width: 100%;
+      background: #ccc;
+      border: 3px solid #222; }
+
+.person-details-wrapper {
+  padding: 10px; }
+  .person-details-wrapper .close {
+    background: #222222;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    float: right;
+    position: absolute;
+    right: 10px;
+    z-index: 1000; }
+  .person-details-wrapper img {
+    border: 3px solid #222222;
+    max-width: 100%; }
+
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    width: 800px; } }
 
 /*# sourceMappingURL=main.css.map */

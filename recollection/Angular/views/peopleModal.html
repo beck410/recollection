@@ -1,12 +1,16 @@
 ﻿<div class="person-details-wrapper">
-    <div class="modal-close-btn" ng-click="personDetails.cancel()">Close</div>
-    <div class="person-details-overview">
-        <img ng-src="{{personDetails.person.MainImage}}">
-        <h1>{{personDetails.person.Name}}</h1>
-        <div>{{personDetails.person.Relationship}}</div>
-        <div>{{personDetails.person.Address}}</div>
-        <div>{{personDetails.person.Phone}}</div>
-        <div>{{personDetails.person.Birthday | monthDayYear}}</div>
+    <div class="modal-close-btn close" ng-click="personDetails.cancel()">X</div>
+    <div class="person-details-overview row">
+        <div class="col-md-6">
+            <img ng-src="{{personDetails.person.MainImage}}">
+        </div>
+        <div class="col-md-6 person-details">
+            <h1>{{personDetails.person.Name}}</h1>
+            <div><strong>Relationship: </strong>{{personDetails.person.Relationship}}</div>
+            <div><strong>Address: </strong>{{personDetails.person.Address}}</div>
+            <div><strong>Phone: </strong>{{personDetails.person.Phone}}</div>
+            <div><strong>Birthday: </strong>{{personDetails.person.Birthday | monthDayYear}}</div>
+        </div>
     </div>
     <div class="person-memories">
         <h2>Memories</h2>
@@ -29,7 +33,7 @@
         <ul class="image-list">
             <li ng-repeat="(id,image) in personDetails.images">
                 <img ng-src="{{image.ImageLink}}" />
-                <div>{{image.Caption}}-{{image.DateOfImage}}</div>
+                <div>{{image.Caption}}-{{image.DateOfImage | monthDayYear}}</div>
             </li>
         </ul>
 

@@ -88,6 +88,7 @@
         })
 
         vm.cancel = function () {
+            console.log('working');
             $modalInstance.dismiss('cancel');
         };
     })

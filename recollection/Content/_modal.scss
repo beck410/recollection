@@ -1,0 +1,19 @@
+.person-details-wrapper {
+
+    .person-details {
+    }
+
+    .close {
+        @include close-btn
+    }
+    padding: 10px;
+    img {
+        @include image-style;
+    } 
+}
+
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+      width: 800px;
+    }
+}

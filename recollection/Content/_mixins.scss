@@ -1,0 +1,27 @@
+@mixin close-btn {
+    background: #222222;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    float: right;
+    position: absolute;
+    right: 10px;
+    z-index: 1000;
+}
+
+@mixin delete-shape {
+    background: red;
+    padding: 5px 10px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+
+@mixin image-style {
+    border: 3px solid #222222;
+    max-width: 100%;
+}

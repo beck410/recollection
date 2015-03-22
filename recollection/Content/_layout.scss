@@ -1,15 +1,22 @@
 body, .main-menu {
     margin: 0 auto;
-    max-width: 1020px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 body {
     background: #E8E8E8; 
 }
 
-.navbar {
+
+ul {
+    list-style-type: none;
+}
+
+nav {
     ul {
-        list-style-type: none;
+        -webkit-padding-start: 0;
+        padding-left: 10px;
     }
 }
 

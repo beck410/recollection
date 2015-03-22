@@ -1,8 +1,8 @@
 ﻿<div class="list-wrapper">
     <ul class="row list">
         <li class="col-md-3" ng-repeat="(id,person) in showPeople.people">
-            <div class="delete-sign" ng-click="showPeople.deletePerson(id,person)">X</div>
-            <img ng-click="showPeople.personDetails(person)" ng-src="{{person.MainImage}}" class="list-img" alt="people image" />
+            <div class="delete-btn" ng-click="showPeople.deletePerson(id,person)">X</div>
+            <div class="img-wrapper"><img ng-click="showPeople.personDetails(person)" ng-src="{{person.MainImage}}" class="list-img" alt="people image" /></div>
             <div class="list-item-name">{{person.Name}}</div> 
             <div class="list-item-name">{{person.Relationship}}</div>
         </li>

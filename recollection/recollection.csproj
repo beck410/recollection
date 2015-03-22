@@ -302,6 +302,8 @@
     <Content Include="Content\_landing.scss" />
     <Content Include="Content\dashboard.scss" />
     <Content Include="Content\_lists.scss" />
+    <Content Include="Content\_modal.scss" />
+    <Content Include="Content\_mixins.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
