@@ -11,7 +11,7 @@
         }
 
         vm.addNewPerson = function (){
-            apiFactory.postPeople(vm.newPerson, function () {
+            apiPerson.postPeople(vm.newPerson, function () {
                 vm.newPerson = { UserID: USERID }
                 $location.path('/People/All');
             })
