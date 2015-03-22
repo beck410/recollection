@@ -2,20 +2,28 @@
     <div class="modal-close-btn" ng-click="personDetails.cancel()">Close</div>
     <div class="person-details-overview">
         <img ng-src="{{personDetails.person.MainImage}}">
-        <div>{{personDetails.person.Name}}</div>
+        <h1>{{personDetails.person.Name}}</h1>
         <div>{{personDetails.person.Relationship}}</div>
         <div>{{personDetails.person.Address}}</div>
         <div>{{personDetails.person.Phone}}</div>
         <div>{{personDetails.person.Birthday | monthDayYear}}</div>
     </div>
     <div class="person-memories">
+        <h2>Memories</h2>
         <ul class="memory-list">
             <li ng-repeat="(id,memory) in personDetails.memories">
                 <div>{{memory.Message}}</div>
             </li>
         </ul>
     </div>
-    <div class="person-notes"></div>
+    <div class="person-notes">
+        <h2>Notes</h2>
+        <ul class="note-list">
+            <li ng-repeat="(id,note) in personDetails.notes">
+                <div>{{note.Message}}</div>
+            </li>
+        </ul>
+    </div>
     <div class="person-images"></div>
 
 </div>

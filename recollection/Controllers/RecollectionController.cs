@@ -174,7 +174,7 @@ namespace recollection.Controllers
       } 
       //GET: api/Recollection/Notes/Person/placeID
       [HttpGet]
-      [Route("Notes/Person/{id}")]
+      [Route("Notes/{UserID}/Person/{id}")]
       public System.Web.Mvc.JsonResult PersonNotes(int id) {
         var notes = notes_repo.GetAllPersonNotes(id);
         var json = new System.Web.Mvc.JsonResult();

@@ -70,18 +70,19 @@
             vm.people = people;
         })
     })
-    .controller('peopleModalController', function (person, $modalInstance, apiMemory) {
+    .controller('peopleModalController', function (person, $modalInstance, apiMemory, apiNote) {
         var vm = this;
         vm.person = person;
 
         apiMemory.getPersonMemories(person.ID, function (memories) {
-            console.log('personid' + person.ID);
             vm.memories = memories;
-            console.log(vm.memories);
+        })
+
+        apiNote.getPersonNotes(person.ID, function (notes){
+            vm.notes = notes
         })
 
         vm.cancel = function () {
-            console.log('cancel clicked');
             $modalInstance.dismiss('cancel');
         };
     })

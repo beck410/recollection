@@ -229,6 +229,7 @@
     <Content Include="Angular\js\filters\monthDayYear.filter.js" />
     <Content Include="Angular\js\main.constants.js" />
     <Content Include="Angular\js\services\apiMemory.factory.js" />
+    <Content Include="Angular\js\services\apiNotes.factory.js" />
     <Content Include="Angular\js\services\apiPerson.factory.js" />
     <Content Include="Angular\js\services\apiPlace.factory.js" />
     <Content Include="Angular\js\services\requestUrl.factory.js" />
