@@ -15,20 +15,20 @@
     <div class="person-memories">
         <h2>Memories</h2>
         <accordion>
-        <accordion-group>
-            <accordion-heading>
-                + Add New Memory
-            </accordion-heading>
-            <form name="memory-list-add-form" ng-submit="personDetails.addNewMemory()">
-                 <div>
-                    <label class="control-label">Memory: </label>
-                    <input type="text" class="form-control" ng-model="personDetails.newMemory.Message" />
-                </div>
-                <input class="btn" type="submit" value="Add Memory">
-            </form>
-            <button class="btn" ng-click="people.clearForm()">Clear</button>
-        </accordion-group>
-            </accordion>
+            <accordion-group>
+                <accordion-heading>
+                    + Add New Memory
+                </accordion-heading>
+                <form name="memory-list-add-form" ng-submit="personDetails.addNewMemory()">
+                     <div>
+                        <label class="control-label">Memory: </label>
+                        <input type="text" class="form-control" ng-model="personDetails.newMemory.Message" />
+                    </div>
+                    <input class="btn" type="submit" value="Add Memory">
+                </form>
+                <button class="btn" ng-click="personDetails.clearForm('memory')">Clear</button>
+            </accordion-group>
+        </accordion>
         <ul class="memory-list">
             <li ng-repeat="(id,memory) in personDetails.memories">
                 <div>{{memory.Message}}</div>
@@ -37,6 +37,21 @@
     </div>
     <div class="person-notes">
         <h2>Notes</h2>
+        <accordion>
+            <accordion-group>
+                <accordion-heading>
+                    + Add New Note
+                </accordion-heading>
+                <form name="note-list-add-form" ng-submit="personDetails.addNewNote()">
+                     <div>
+                        <label class="control-label">Note: </label>
+                        <input type="text" class="form-control" ng-model="personDetails.newNote.Message" />
+                    </div>
+                    <input class="btn" type="submit" value="Add Note">
+                </form>
+                <button class="btn" ng-click="personDetails.clearForm('note')">Clear</button>
+            </accordion-group>
+        </accordion>
         <ul class="note-list">
             <li ng-repeat="(id,note) in personDetails.notes">
                 <div>{{note.Message}}</div>

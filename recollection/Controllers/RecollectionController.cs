@@ -198,6 +198,22 @@ namespace recollection.Controllers
         json.Data = new { notes };
         return json;
       } 
+
+      [HttpPost]
+      [Route("Notes/{UserID }/Place/{id}")]
+      public HttpResponseMessage PostPlaceNotes([FromBody] Note note) {
+        notes_repo.Add(note);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      } 
+
+      //GET: api/Recollection/Notes/Person/placeID
+      [HttpPost]
+      [Route("Notes/{UserID}/Person/{id}")]
+      public HttpResponseMessage PostPersonNotes([FromBody] Note note) {
+        notes_repo.Add(note);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      } 
+
       //GET: api/Recollection/Notes/ID
       [HttpGet]
       [Route("Notes/{id}")]

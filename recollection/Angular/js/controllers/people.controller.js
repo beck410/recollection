@@ -74,6 +74,7 @@
         var vm = this;
         vm.person = person;
         vm.newMemory = { PersId: person.ID };
+        vm.newNote = { PersId: person.ID };
 
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
@@ -94,8 +95,12 @@
         };
 
 
-        vm.clearForm = function () {
-            vm.newPerson = { PersId: person.ID };
+        vm.clearForm = function (type) {
+            if (type === 'memory') {
+                vm.newMemory = { PersId: person.ID };
+                return;
+            }
+            vm.newNote = { PersId: person.ID };
         }
 
         vm.addNewMemory = function () {
@@ -103,6 +108,15 @@
                 vm.newMemory = { PersId: person.ID }
                 apiMemory.getPersonMemories(person.ID, function (memories) {
                     vm.memories = memories;
+                })
+            })
+        }
+
+        vm.addNewNote = function () {
+            apiNote.postPersonNote(vm.newNote, function () {
+                vm.newNote = { PersId: person.ID }
+                apiNote.getPersonNotes(person.ID, function (notes) {
+                    vm.notes = notes;
                 })
             })
         }

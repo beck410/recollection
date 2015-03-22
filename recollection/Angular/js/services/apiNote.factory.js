@@ -15,8 +15,20 @@
             })
         }
 
+        function _postPersonNote(note, cb) {
+            var url = API + 'Notes/' + USERID + '/Person/' + note.PersID;
+            $http.post(url,note)
+            .success(function () {
+                cb();
+            })
+            .error(function (err) {
+                console.log('post memory error: ',err);
+            }) 
+        }
+
         return {
-            getPersonNotes: _getPersonNotes
+            getPersonNotes: _getPersonNotes,
+            postPersonNote: _postPersonNote 
         };
     });
 })();
