@@ -70,7 +70,7 @@
             vm.people = people;
         })
     })
-    .controller('peopleModalController', function (person, $modalInstance, apiMemory, apiNote) {
+    .controller('peopleModalController', function (person, $modalInstance, apiMemory, apiNote,apiImage) {
         var vm = this;
         vm.person = person;
 
@@ -80,6 +80,11 @@
 
         apiNote.getPersonNotes(person.ID, function (notes){
             vm.notes = notes
+        })
+
+        apiImage.getPersonImages(person.ID, function (images) {
+            vm.images = images
+            console.log(images);
         })
 
         vm.cancel = function () {

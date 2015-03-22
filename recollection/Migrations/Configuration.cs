@@ -36,7 +36,7 @@ namespace recollection.Migrations
           string userID = "91818b2b-a2af-4e10-8fb4-362fd8780ba3";
 
           var people = new List<Person>{
-            new Person { Name = "Peter Smith", UserID = userID, Birthday = new DateTime(1980, 05, 07), Address = "123 Fake Street", Phone = "1234567890", Relationship = "son", RelationshipType = "Family", MainImage = "http://www.culligan.com/images/Culligan_NewMan.png" },
+            new Person { Name = "Peter Smith", UserID = userID, Birthday = new DateTime(1970, 05, 07), Address = "123 Fake Street", Phone = "1234567890", Relationship = "son", RelationshipType = "Family", MainImage = "http://www.culligan.com/images/Culligan_NewMan.png" },
 
             new Person { Name = "Mary Smith", UserID = userID, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "wife", RelationshipType = "Family", MainImage = "http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg " },
 
@@ -90,6 +90,14 @@ namespace recollection.Migrations
           };
           notes.ForEach(s => context.Notes.AddOrUpdate(c => c.Message, s));
           context.SaveChanges();
-        } 
+
+          var images = new List<Image> {
+            new Image { PersID = peterId, ImageLink = "http://www.stylishboard.com/wp-content/uploads/2013/07/baby-boy-check-shirts.jpg", DateOfImage = new DateTime(1981,4,7), Caption = "Peter before his christening" },                                    
+            new Image { PersID = peterId, ImageLink = "http://www.bhmpics.com/walls/my_baby_boy-other.jpg", DateOfImage = new DateTime(1985,7,7), Caption = "first baseball game" },   
+            new Image { PersID = peterId, ImageLink = "http://www.wrangler.com/WRG_STORE_US/assets/department/2012_boy_top_none_boy-bball.jpg", DateOfImage = new DateTime(1987,6,1), Caption = "playing basketball" }
+          };
+
+          images.ForEach(s => context.Images.AddOrUpdate(c => c.ImageLink, s));
+        }
     }
 }

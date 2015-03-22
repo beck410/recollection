@@ -24,6 +24,15 @@
             </li>
         </ul>
     </div>
-    <div class="person-images"></div>
+    <div class="person-images">
+        <h2>Images</h2>
+        <ul class="image-list">
+            <li ng-repeat="(id,image) in personDetails.images">
+                <img ng-src="{{image.ImageLink}}" />
+                <div>{{image.Caption}}-{{image.DateOfImage}}</div>
+            </li>
+        </ul>
+
+    </div>
 
 </div>
