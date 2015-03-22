@@ -73,6 +73,7 @@
     .controller('peopleModalController', function (person, $modalInstance, apiMemory, apiNote,apiImage) {
         var vm = this;
         vm.person = person;
+        vm.newMemory = { PersId: person.ID };
 
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
@@ -91,5 +92,19 @@
             console.log('working');
             $modalInstance.dismiss('cancel');
         };
+
+
+        vm.clearForm = function () {
+            vm.newPerson = { PersId: person.ID };
+        }
+
+        vm.addNewMemory = function () {
+            apiMemory.postPersonMemory(vm.newMemory, function () {
+                vm.newMemory = { PersId: person.ID }
+                apiMemory.getPersonMemories(person.ID, function (memories) {
+                    vm.memories = memories;
+                })
+            })
+        }
     })
 })();

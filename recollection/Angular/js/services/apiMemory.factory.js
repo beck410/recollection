@@ -15,8 +15,20 @@
             })
         }
 
+        function _postPersonMemory(memory,cb) {
+            var url = API + 'Memories/' + USERID + '/Person/' + memory.PersID;
+            $http.post(url,memory)
+            .success(function () {
+                cb();
+            })
+            .error(function (err) {
+                console.log('post memory error: ',err);
+            })
+        }
+
         return {
-            getPersonMemories: _getPersonMemories
+            getPersonMemories: _getPersonMemories,
+            postPersonMemory: _postPersonMemory
         };
     });
 })();

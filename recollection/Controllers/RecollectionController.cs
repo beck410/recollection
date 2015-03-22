@@ -137,6 +137,23 @@ namespace recollection.Controllers
         json.Data = new { notes };
         return json;
       } 
+
+      [HttpPost]
+      [Route("Memories/{UserID}/Place/{id}")]
+      public HttpResponseMessage PostPlaceMemory([FromBody] Memory memory) {
+        memory_repo.Add(memory);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+
+      } 
+      //GET: api/Recollection/Memories/UserID/Person/placeID
+      [HttpPost]
+      [Route("Memories/{UserID}/Person/{id}")]
+      public HttpResponseMessage PostPersonMemory([FromBody] Memory memory) {
+        memory_repo.Add(memory);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      } 
+
+
       //GET: api/Recollection/Memories/UserID/ID
       [HttpGet]
       [Route("Memories/{UserID}/{id}")]
