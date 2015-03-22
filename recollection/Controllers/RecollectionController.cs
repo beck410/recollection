@@ -130,7 +130,7 @@ namespace recollection.Controllers
       } 
       //GET: api/Recollection/Memories/UserID/Person/placeID
       [HttpGet]
-      [Route("Memories/Person/{UserID}/{id}")]
+      [Route("Memories/{UserID}/Person/{id}")]
       public System.Web.Mvc.JsonResult PersonMemories(int id) {
         var notes = memory_repo.GetAllPersonMemories(id);
         var json = new System.Web.Mvc.JsonResult();

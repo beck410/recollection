@@ -8,7 +8,13 @@
         <div>{{personDetails.person.Phone}}</div>
         <div>{{personDetails.person.Birthday | monthDayYear}}</div>
     </div>
-    <div class="person-memories"></div>
+    <div class="person-memories">
+        <ul class="memory-list">
+            <li ng-repeat="(id,memory) in personDetails.memories">
+                <div>{{memory.Message}}</div>
+            </li>
+        </ul>
+    </div>
     <div class="person-notes"></div>
     <div class="person-images"></div>
 

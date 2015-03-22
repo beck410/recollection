@@ -70,9 +70,15 @@
             vm.people = people;
         })
     })
-    .controller('peopleModalController', function (person, $modalInstance, apiPerson) {
+    .controller('peopleModalController', function (person, $modalInstance, apiMemory) {
         var vm = this;
         vm.person = person;
+
+        apiMemory.getPersonMemories(person.ID, function (memories) {
+            console.log('personid' + person.ID);
+            vm.memories = memories;
+            console.log(vm.memories);
+        })
 
         vm.cancel = function () {
             console.log('cancel clicked');
