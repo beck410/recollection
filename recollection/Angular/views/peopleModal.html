@@ -58,6 +58,7 @@
             <li ng-repeat="(id,memory) in personDetails.memories">
                 <div>
                     {{memory.Message}}
+                <span class="details details-edit" ng-click="personDetails.edit('memory', memory)">Edit</span> 
                 <span class="details-delete" ng-click="personDetails.delete('memory', id, memory)">X</span>
                 </div>
             </li>

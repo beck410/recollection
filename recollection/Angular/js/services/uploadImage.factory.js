@@ -12,13 +12,15 @@
             $upload.upload({
                 url: 'https://recollectionimages.s3.amazonaws.com',
                 method: 'POST',
-                fields: {
+                data: {
                     'Content-Type': file.type,
-                    key: fileName,
                     awsaccesskeyid: 'AKIAIUNACKD5KNQVYYDQ',
                     acl: 'public-read',
                     policy: 'eyJleHBpcmF0aW9uIjoiMjAyMC0wMS0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJyZWNvbGxlY3Rpb25pbWFnZXMifSx7ImFjbCI6ICJwdWJsaWMtcmVhZCJ9LFsic3RhcnRzLXdpdGgiLCIkQ29udGVudC1UeXBlIiwiIl0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIiXV19',
                     signature: 'GTY+MahjpwnuywHMfz/UQD9G+nc='
+                },
+                fields: {
+                 key: fileName
                 },
                 file: file
             })
