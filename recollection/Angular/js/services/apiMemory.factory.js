@@ -25,9 +25,22 @@
             })
         }
 
+        function _deleteMemory(id,cb) {
+            var url = API + 'Memories/' + USERID + '/Delete/' + id;
+            console.log(url);
+            $http.delete(url)
+            .success(function () {
+              cb()
+            })
+            .error(function (err) {
+                console.log("delete memory error: ",err);
+            })
+        }
+
         return {
             getPersonMemories: _getPersonMemories,
-            postPersonMemory: _postPersonMemory
+            postPersonMemory: _postPersonMemory,
+            deleteMemory: _deleteMemory
         };
     });
 })();

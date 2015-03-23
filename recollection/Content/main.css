@@ -142,6 +142,12 @@ nav ul {
     position: absolute;
     right: 50px;
     z-index: 1000; }
+  .person-details-wrapper .details-delete {
+    background: #C23F38;
+    padding: 3px 5px;
+    border-radius: 19px;
+    color: white;
+    z-index: 1000; }
   .person-details-wrapper .close {
     background: #222222;
     padding: 5px;
@@ -159,7 +165,10 @@ nav ul {
     margin-top: 10px;
     margin-bottom: 10px; }
     .person-details-wrapper ul li {
-      padding-top: 5px; }
+      padding-top: 10px;
+      position: relative; }
+      .person-details-wrapper ul li span {
+        float: right; }
     .person-details-wrapper ul li:nth-child(3n+1) {
       clear: left; }
       .person-details-wrapper ul li:nth-child(3n+1) img {

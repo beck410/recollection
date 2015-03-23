@@ -78,6 +78,7 @@
         vm.newImage = { PersID: person.ID };
         vm.personFormVisible = false;
         vm.editPerson = { ID: person.ID};
+
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
         })
@@ -173,6 +174,17 @@
 
         vm.cancelEditPerson = function () {
             vm.personFormVisible = false;
+        }
+
+        vm.deleteMemory = function (type, index, memory) {
+            console.log('clicked');
+            if (type === "memory") {
+                apiMemory.deleteMemory(memory.ID, function (memory) {
+                    apiMemory.getPersonMemories(person.ID, function (memories) {
+                        vm.memories = memories;
+                    })
+                });
+            }
         }
     })
 })();

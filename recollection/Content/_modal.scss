@@ -7,6 +7,14 @@
         z-index: 1000;
     }
 
+    .details-delete {
+        background: #C23F38;
+        padding: 3px 5px;
+        border-radius: 19px;
+        color: white;
+        z-index: 1000;
+    }
+
     .person-details {
     }
 
@@ -23,7 +31,12 @@
         margin-bottom: 10px;
 
         li {
-            padding-top: 5px;
+            padding-top: 10px;
+            position: relative;
+
+            span {
+                float:right;
+            }
         }
 
         li:nth-child(3n+1) {

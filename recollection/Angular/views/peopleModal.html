@@ -56,7 +56,10 @@
         </accordion>
         <ul class="memory-list">
             <li ng-repeat="(id,memory) in personDetails.memories">
-                <div>{{memory.Message}}</div>
+                <div>
+                    {{memory.Message}}
+                <span class="details-delete" ng-click="personDetails.deleteMemory('memory', id, memory)">X</span>
+                </div>
             </li>
         </ul>
     </div>
@@ -78,8 +81,10 @@
             </accordion-group>
         </accordion>
         <ul class="note-list">
-            <li ng-repeat="(id,note) in personDetails.notes">
-                <div>{{note.Message}}</div>
+            <li ng-repeat="(id,note) in personDetails.notes" class="row">
+                <div class="col-md-11">{{note.Message}}</div>
+                <div class="col-md-1"><span class="details-delete">X</span></div>
+                <div class="col-md-1">X</div>
             </li>
         </ul>
     </div>
