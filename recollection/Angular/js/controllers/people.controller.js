@@ -70,13 +70,14 @@
             vm.people = people;
         })
     })
-    .controller('peopleModalController', function (person, $scope, $modalInstance, apiMemory, apiNote,apiImage,uploadImage) {
+    .controller('peopleModalController', function (person, $scope, $modalInstance, apiPerson, apiMemory, apiNote,apiImage,uploadImage) {
         var vm = this;
         vm.person = person;
         vm.newMemory = { PersId: person.ID };
         vm.newNote = { PersId: person.ID };
         vm.newImage = { PersID: person.ID };
-
+        vm.personFormVisible = false;
+        vm.editPerson = { ID: person.ID};
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
         })
@@ -155,6 +156,23 @@
                 vm.files[0].dataUrl = base64;
                 $scope.$apply();
             })
+        }
+
+        vm.showEditPersonForm = function () {
+            vm.editPerson = person;
+            vm.personFormVisible = true;
+
+        }
+
+        vm.editPersonInDB = function () {
+            apiPerson.putPerson(vm.editPerson, function (newPersonDetails) {
+                vm.person = vm.editPerson;
+                vm.personFormVisible = false;
+            })
+        }
+
+        vm.cancelEditPerson = function () {
+            vm.personFormVisible = false;
         }
     })
 })();

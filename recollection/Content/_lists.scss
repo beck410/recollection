@@ -32,11 +32,11 @@
         .delete-btn {
             @include delete-shape;
         }
-
-        .img-wrapper {
-            width: 100%;
-            background: #ccc;
-            border: 3px solid #222;
-        }
     }
+}
+
+.img-wrapper {
+    width: 100%;
+    background: #ccc;
+    border: 3px solid #222;
 }

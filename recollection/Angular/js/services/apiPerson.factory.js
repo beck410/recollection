@@ -26,7 +26,7 @@
         }
 
         function _putPeople(person, cb) {
-            var url = API + 'persons/' + USERID + '/UPDATE/' + place.ID;
+            var url = API + 'persons/' + USERID + '/UPDATE/' + person.ID;
             $http.put(url, person)
             .success(function(person) {
                 console.log("edit sent");
@@ -59,10 +59,15 @@
             })
          }
 
+         //function _getById(id, cb) {
+             //var url = API + 'persons/' + USERID + id;
+             //$http.get()
+         //}
+
         return {
             getPeople: _getPeople,
             postPeople: _postPeople,
-            putPeople: _putPeople,
+            putPerson: _putPeople,
             deletePeople: _deletePeople,
             getByRelationshipType: _getByRelationshipType
         };

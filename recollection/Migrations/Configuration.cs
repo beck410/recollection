@@ -93,8 +93,15 @@ namespace recollection.Migrations
 
           var images = new List<Image> {
             new Image { PersID = peterId, ImageLink = "http://www.stylishboard.com/wp-content/uploads/2013/07/baby-boy-check-shirts.jpg", DateOfImage = new DateTime(1981,4,7), Caption = "Peter before his christening" },                                    
-            new Image { PersID = peterId, ImageLink = "http://www.bhmpics.com/walls/my_baby_boy-other.jpg", DateOfImage = new DateTime(1985,7,7), Caption = "first baseball game" },   
-            new Image { PersID = peterId, ImageLink = "http://www.wrangler.com/WRG_STORE_US/assets/department/2012_boy_top_none_boy-bball.jpg", DateOfImage = new DateTime(1987,6,1), Caption = "playing basketball" }
+            new Image { PersID = peterId, ImageLink = "http://www.bhmpics.com/walls/my_baby_boy-other.jpg", DateOfImage = new DateTime(1985,7,7), Caption = "first baseball game" },  
+ 
+            new Image { PersID = peterId, ImageLink = "http://www.wrangler.com/WRG_STORE_US/assets/department/2012_boy_top_none_boy-bball.jpg", DateOfImage = new DateTime(1987,6,1), Caption = "playing basketball" },
+
+            new Image { PersID = peterId, ImageLink = "http://www.playbillsvspayingbills.com/wp-content/uploads/2010/10/kick.jpg", DateOfImage = new DateTime(1986,6,1), Caption = "first game of soccer" },
+
+            new Image { PersID = peterId, ImageLink = "http://blogs.record-eagle.com/wp-content/uploads/2012/06/father-son-picblk-wht-2.jpg", DateOfImage = new DateTime(1984,6,1), Caption = "camping trip in Florida" },
+
+            new Image { PersID = peterId, ImageLink = "http://soughtoutglobal.com/wp-content/uploads/2014/05/father_son_beach-580x397.jpg", DateOfImage = new DateTime(1984,6,1), Caption = "camping trip in Florida" }
           };
 
           images.ForEach(s => context.Images.AddOrUpdate(c => c.ImageLink, s));

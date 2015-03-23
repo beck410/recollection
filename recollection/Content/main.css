@@ -124,13 +124,24 @@ nav ul {
       position: absolute;
       right: 0;
       top: 0px; }
-    .list-wrapper .list .img-wrapper {
-      width: 100%;
-      background: #ccc;
-      border: 3px solid #222; }
+
+.img-wrapper {
+  width: 100%;
+  background: #ccc;
+  border: 3px solid #222; }
 
 .person-details-wrapper {
   padding: 10px; }
+  .person-details-wrapper .modal-edit-btn {
+    background: #666;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    z-index: 1000;
+    float: right;
+    position: absolute;
+    right: 50px;
+    z-index: 1000; }
   .person-details-wrapper .close {
     background: #222222;
     padding: 5px;
@@ -144,6 +155,19 @@ nav ul {
   .person-details-wrapper img {
     border: 3px solid #222222;
     max-width: 100%; }
+  .person-details-wrapper ul {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    .person-details-wrapper ul li {
+      padding-top: 5px; }
+    .person-details-wrapper ul li:nth-child(3n+1) {
+      clear: left; }
+      .person-details-wrapper ul li:nth-child(3n+1) img {
+        max-height: 180px; }
+  .person-details-wrapper .form-btn {
+    display: inline-block;
+    padding-left: 10px;
+    margin-top: 10px; }
 
 @media screen and (min-width: 768px) {
   .modal-dialog {

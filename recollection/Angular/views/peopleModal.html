@@ -1,16 +1,41 @@
 ﻿<div class="person-details-wrapper">
+    <div class="modal-edit-btn edit" ng-click="personDetails.showEditPersonForm()">Edit</div>
     <div class="modal-close-btn close" ng-click="personDetails.cancel()">X</div>
     <div class="person-details-overview row">
         <div class="col-md-6">
             <img ng-src="{{personDetails.person.MainImage}}">
         </div>
-        <div class="col-md-6 person-details">
+        <div ng-hide="personDetails.personFormVisible" class="col-md-6 person-details">
             <h1>{{personDetails.person.Name}}</h1>
             <div><strong>Relationship: </strong>{{personDetails.person.Relationship}}</div>
             <div><strong>Address: </strong>{{personDetails.person.Address}}</div>
             <div><strong>Phone: </strong>{{personDetails.person.Phone}}</div>
             <div><strong>Birthday: </strong>{{personDetails.person.Birthday | monthDayYear}}</div>
         </div>
+        <form ng-show="personDetails.personFormVisible" ng-submit="personDetails.editPersonInDB()" class="col-md-6">
+            <div>
+                <label class="control-label">Name: </label>
+                <input type="text" class="form-control" ng-model="personDetails.editPerson.Name" />
+            </div>
+            <div>
+                <label class="control-label">Relationship: </label>
+                <input type="text" class="form-control" ng-model="personDetails.editPerson.Relationship" />
+            </div>
+            <div>
+                <label class="control-label">Address: </label>
+                <input type="text" class="form-control" ng-model="personDetails.editPerson.Address" />
+            </div>
+            <div>
+                <label class="control-label">Phone: </label>
+                <input type="text" class="form-control" ng-model="personDetails.editPerson.Phone" />
+            </div>
+            <div>
+                <label class="control-label">Birthday: </label>
+                <datepicker ng-model="personDetails.editPerson.Birthday" min-date="minDate" show-weeks="true"></datepicker>
+            </div>
+            <input class="btn form-btn" type="submit" value="Edit Person">
+            <button class="btn form-btn" ng-click="personDetails.cancelEditPerson()">Cancel</button>
+        </form>
     </div>
     <div class="person-memories">
         <h2>Memories</h2>
@@ -24,9 +49,9 @@
                         <label class="control-label">Memory: </label>
                         <input type="text" class="form-control" ng-model="personDetails.newMemory.Message" />
                     </div>
-                    <input class="btn" type="submit" value="Add Memory">
+                    <input class="btn form-btn" type="submit" value="Add Memory">
+                    <button class="btn form-btn" ng-click="personDetails.clearForm('memory')">Clear</button>
                 </form>
-                <button class="btn" ng-click="personDetails.clearForm('memory')">Clear</button>
             </accordion-group>
         </accordion>
         <ul class="memory-list">
@@ -36,7 +61,7 @@
         </ul>
     </div>
     <div class="person-notes">
-        <h2>Notes</h2> 
+        <h2>Notes</h2>
         <accordion>
             <accordion-group>
                 <accordion-heading>
@@ -47,9 +72,9 @@
                         <label class="control-label">Note: </label>
                         <input type="text" class="form-control" ng-model="personDetails.newNote.Message" />
                     </div>
-                    <input class="btn" type="submit" value="Add Note">
+                    <input class="btn form-btn" type="submit" value="Add Note">
+                    <button class="btn form-btn" ng-click="personDetails.clearForm('note')">Clear</button>
                 </form>
-                <button class="btn" ng-click="personDetails.clearForm('note')">Clear</button>
             </accordion-group>
         </accordion>
         <ul class="note-list">
@@ -68,29 +93,27 @@
                 <form name="image-list-add-form" ng-submit="personDetails.addNewImage()">
                     <div class="form-group">
                         <label class="control-label">Upload Image: </label>
-                        <img ng-show="personDetails.files[0].dataUrl" ng-src="{{personDetails.files[0].dataUrl}}"/>
+                        <img ng-show="personDetails.files[0].dataUrl" ng-src="{{personDetails.files[0].dataUrl}}" />
                         <input tyoe="file" ng-model="personDetails.files" ng-file-select ng-file-change="personDetails.fileSelected($event)" accept="images/*" />
                     </div>
-                    <div> 
+                    <div>
                         <label class="control-label">Caption: </label>
                         <input type="text" class="form-control" ng-model="personDetails.newImage.Caption" />
                     </div>
-                    <div> 
+                    <div>
                         <label class="control-label">Date of Image: </label>
                         <datepicker ng-model="personDetails.newImage.DateOfImage" min-date="minDate" show-weeks="true"></datepicker>
                     </div>
-                    <input class="btn" type="submit" value="Add Image">
+                    <input class="btn form-btn" type="submit" value="Add Image">
+                    <button class="btn form-btn" ng-click="personDetails.clearForm('image')">Clear</button>
                 </form>
-                <button class="btn" ng-click="personDetails.clearForm('image')">Clear</button>
             </accordion-group>
         </accordion>
-        <ul class="image-list">
-            <li ng-repeat="(id,image) in personDetails.images">
-                <img ng-src="{{image.ImageLink}}" />
+        <ul class="image-list cf">
+            <li ng-repeat="(id,image) in personDetails.images" class="col-md-4">
+                <div class="img-wrapper"><img ng-src="{{image.ImageLink}}" /></div>
                 <div>{{image.Caption}}-{{image.DateOfImage | monthDayYear}}</div>
             </li>
         </ul>
-
     </div>
-
 </div>
