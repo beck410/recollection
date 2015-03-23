@@ -176,14 +176,22 @@
             vm.personFormVisible = false;
         }
 
-        vm.deleteMemory = function (type, index, memory) {
+        vm.delete = function (type, index, obj) {
             console.log('clicked');
             if (type === "memory") {
-                apiMemory.deleteMemory(memory.ID, function (memory) {
+                apiMemory.deleteMemory(obj.ID, function (memory) {
                     apiMemory.getPersonMemories(person.ID, function (memories) {
                         vm.memories = memories;
                     })
                 });
+            }
+
+            if (type == 'note') {
+                apiNote.deleteNote(obj.ID, function (note) {
+                    apiNote.getPersonNotes(person.ID, function (notes){
+                        vm.notes = notes;
+                    })
+                })
             }
         }
     })

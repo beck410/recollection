@@ -223,17 +223,17 @@ namespace recollection.Controllers
         json.Data = new { notes };
         return json;
       } 
-      //PUT: api/Recollection/Notes/Update/ID
+      //PUT: api/Recollection/Notes/USERID/Update/ID
       [HttpPut]
-      [Route("Notes/Update/{id}")]
+      [Route("Notes/{UserID}/Update/{id}")]
       public HttpResponseMessage UpdateNote([FromBody] Note note) {
         notes_repo.Edit(note);
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
 
-      //DELETE: api/Recollection/Notes/Delete/ID
+      //DELETE: api/Recollection/Notes/UserID/Delete/ID
       [HttpDelete]
-      [Route("Notes/Delete/{id}")]
+      [Route("Notes/{UserID}/Delete/{id}")]
       public HttpResponseMessage DeleteNote(int id) {
         notes_repo.Delete(id);
         return new HttpResponseMessage(HttpStatusCode.OK);

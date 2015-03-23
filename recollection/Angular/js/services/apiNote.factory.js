@@ -26,9 +26,22 @@
             }) 
         }
 
+        function _deleteNote(id, cb) {
+            var url = API + 'Notes/' + USERID + '/Delete/' + id;
+            console.log(url);
+            $http.delete(url)
+            .success(function () {
+              cb()
+            })
+            .error(function (err) {
+                console.log("delete note error: ",err);
+            })
+        }
+
         return {
             getPersonNotes: _getPersonNotes,
-            postPersonNote: _postPersonNote 
+            postPersonNote: _postPersonNote,
+            deleteNote: _deleteNote
         };
     });
 })();
