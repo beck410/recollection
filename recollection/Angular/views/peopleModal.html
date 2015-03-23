@@ -20,7 +20,7 @@
                     + Add New Memory
                 </accordion-heading>
                 <form name="memory-list-add-form" ng-submit="personDetails.addNewMemory()">
-                     <div>
+                    <div>
                         <label class="control-label">Memory: </label>
                         <input type="text" class="form-control" ng-model="personDetails.newMemory.Message" />
                     </div>
@@ -36,14 +36,14 @@
         </ul>
     </div>
     <div class="person-notes">
-        <h2>Notes</h2>
+        <h2>Notes</h2> 
         <accordion>
             <accordion-group>
                 <accordion-heading>
                     + Add New Note
                 </accordion-heading>
                 <form name="note-list-add-form" ng-submit="personDetails.addNewNote()">
-                     <div>
+                    <div>
                         <label class="control-label">Note: </label>
                         <input type="text" class="form-control" ng-model="personDetails.newNote.Message" />
                     </div>
@@ -60,6 +60,30 @@
     </div>
     <div class="person-images">
         <h2>Images</h2>
+        <accordion>
+            <accordion-group>
+                <accordion-heading>
+                    + Add New Image
+                </accordion-heading>
+                <form name="image-list-add-form" ng-submit="personDetails.addNewImage()">
+                    <div class="form-group">
+                        <label class="control-label">Upload Image: </label>
+                        <img ng-show="personDetails.files[0].dataUrl" ng-src="{{personDetails.files[0].dataUrl}}"/>
+                        <input tyoe="file" ng-model="personDetails.files" ng-file-select ng-file-change="personDetails.fileSelected($event)" accept="images/*" />
+                    </div>
+                    <div> 
+                        <label class="control-label">Caption: </label>
+                        <input type="text" class="form-control" ng-model="personDetails.newImage.Caption" />
+                    </div>
+                    <div> 
+                        <label class="control-label">Date of Image: </label>
+                        <datepicker ng-model="personDetails.newImage.DateOfImage" min-date="minDate" show-weeks="true"></datepicker>
+                    </div>
+                    <input class="btn" type="submit" value="Add Image">
+                </form>
+                <button class="btn" ng-click="personDetails.clearForm('image')">Clear</button>
+            </accordion-group>
+        </accordion>
         <ul class="image-list">
             <li ng-repeat="(id,image) in personDetails.images">
                 <img ng-src="{{image.ImageLink}}" />

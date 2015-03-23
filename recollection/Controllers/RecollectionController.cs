@@ -258,6 +258,19 @@ namespace recollection.Controllers
         json.Data = new { images };
         return json;
       } 
+
+      [HttpPost]
+      [Route("Images/{UserID}/Place/{id}")]
+      public HttpResponseMessage PostPlaceImages([FromBody] Image image) {
+        image_repo.Add(image);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      } 
+      //GET: api/Recollection/Images/Person/placeID
+      [HttpPost]
+      [Route("Images/{UserID}/Person/{id}")]
+      public HttpResponseMessage PostPersonImages(int id) {
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      } 
       //GET: api/Recollection/Image/ID
       [HttpGet]
       [Route("Images/{id}")]
@@ -269,7 +282,7 @@ namespace recollection.Controllers
       } 
       //PUT: api/Recollection/Images/Update/ID
       [HttpPut]
-      [Route("Images/Update/{id}")]
+      [Route("Images/{UserID}/Update/{id}")]
       public HttpResponseMessage UpdateImage([FromBody] Image image) {
         image_repo.Edit(image);
         return new HttpResponseMessage(HttpStatusCode.OK);

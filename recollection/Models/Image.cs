@@ -10,7 +10,6 @@ namespace recollection.Models {
     public int PersID { get; set; }
     public int LocationID { get; set; }
     public string Category { get; set; }
-    [Required]
     public string ImageLink { get; set; }
     public string Caption { get; set; }
     public DateTime? DateOfImage { get; set; }

@@ -1,4 +1,4 @@
 ﻿;(function() {
     'use strict';
-    angular.module('recollection', ['ngRoute', 'ui.bootstrap'])
+    angular.module('recollection', ['ngRoute', 'ui.bootstrap', 'angularFileUpload'])
 })();
