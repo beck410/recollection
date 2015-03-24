@@ -40,9 +40,9 @@
                     <img ng-show="people.files[0].dataUrl" ng-src="{{people.files[0].dataUrl}}" />
                     <input type="file" ng-model="people.files" ng-file-select ng-file-change="people.fileSelected($event)" accept="images/*" />
                 </div>
-                <input class="btn" type="submit" value="Add Person">
-            </form>
-            <button class="btn" ng-click="people.clearForm()">Clear</button>
+                <input class="btn form-btn" type="submit" value="Add Person">
+                <button class="btn form-btn" ng-click="people.clearForm()">Clear</button>
+            </form> 
         </accordion-group>
     </accordion>
     <div class="people-options row">

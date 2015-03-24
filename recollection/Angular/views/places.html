@@ -5,7 +5,7 @@
             <accordion-heading>
                 Add New Place
             </accordion-heading>
-            <form name="place-list-add-form" id="add-place-form" ng-submit="places.addNewPlace()">
+            <form class="add-place-form" name="place-list-add-form" id="add-place-form" ng-submit="places.addNewPlace()">
 
                 <div>
                     <label class="control-label">Place Name: </label>
@@ -21,13 +21,13 @@
                     <input type="file" ng-model="places.files" ng-file-select ng-file-change="places.fileSelected($event)" accept="images/*" />
                 </div>
                 <input class="btn" type="submit" value="Add Place">
+                <button class="btn" ng-click="places.clearForm()">Clear</button>
             </form>
-            <button class="btn" ng-click="places.clearForm()">Clear</button>
         </accordion-group>
     </accordion>
     <ul class="row list">
         <li class="col-md-3" ng-repeat="(id,place) in places.places">
-            <img ng-src="{{place.MainImage}}" class="list-img" alt="place image" />
+            <div class="img-wrapper"><img ng-src="{{place.MainImage}}" class="list-img" alt="place image" /></div>
             <div class="list-item-name">{{place.Name}}</div>
             <div class="list-item-name">{{place.Address}}</div>
         </li>
