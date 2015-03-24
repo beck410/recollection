@@ -142,6 +142,11 @@ nav ul {
     position: absolute;
     right: 50px;
     z-index: 1000; }
+  .person-details-wrapper .edit-memory-btn {
+    position: absolute;
+    right: 65%; }
+  .person-details-wrapper .edit-form {
+    margin: 10px 0; }
   .person-details-wrapper .details-delete {
     background: #C23F38;
     padding: 3px 5px;

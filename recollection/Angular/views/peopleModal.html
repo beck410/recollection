@@ -55,7 +55,7 @@
             </accordion-group>
         </accordion>
 
-        <form ng-show="personDetails.editMessageVisible" ng-submit="personDetails.edit('memory')">
+        <form class="edit-form" ng-show="personDetails.editMessageVisible" ng-submit="personDetails.edit('memory')">
                 <input type="text" ng-model="personDetails.editMemory.Message" value="{{memory.Message}}" />
                 <input type="submit" value="Update"/>
         </form>       
@@ -64,8 +64,8 @@
                 <div class="col-md-11">{{memory.Message}}</div>        
                 <div class="col-md-1">
                     <span class="details-delete" ng-click="personDetails.delete('memory', id, memory)">X</span>
-                    <button class="" ng-click="personDetails.showEdit('memory', memory)">Edit Memory</button> 
-                    <button ng-click="personDetails.editMessageVisible = false">Cancel</button>
+                    <button class="edit-memory-btn" ng-click="personDetails.showEdit('memory', memory)" ng-hide="personDetails.editMessageVisible">Edit</button> 
+                    <button class="edit-memory-btn" ng-show="personDetails.editMessageVisible" ng-click="personDetails.editMessageVisible = false">Cancel</button>
                 </div>
             </li>
         </ul>
