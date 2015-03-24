@@ -312,6 +312,7 @@
     <Content Include="Content\_modal.scss" />
     <Content Include="Content\_mixins.scss" />
     <Content Include="Content\_peopleMenu.scss" />
+    <None Include="Properties\PublishProfiles\recollection.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

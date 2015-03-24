@@ -59,7 +59,6 @@
                 }
             })
         }
-
     })
     .controller('FamilyPeopleController', function ($routeParams, apiPerson,$modal) {
         var vm = this;
@@ -88,26 +87,90 @@
                 }
             })
         }
-
-
     })
-    .controller('FriendsPeopleController', function ($routeParams, apiPerson) {
+    .controller('FriendsPeopleController', function ($routeParams, apiPerson, $modal) {
         var vm = this;
         apiPerson.getByRelationshipType('Friends',function (people) {
             vm.people = people;
         })
+
+       vm.deletePerson = function (id, person) {
+            apiPerson.deletePeople(person.ID, function (personID) {
+                console.log(vm.people[id]);
+                delete vm.people[id];
+            })
+        }
+
+        vm.personDetails = function (person) {
+            var modalInstance = $modal.open({
+                templateUrl: '/Angular/views/peopleModal.html',
+                controller: 'peopleModalController',
+                controllerAs: 'personDetails',
+                size: 'lg',
+                backdrop: false,
+                resolve: {
+                    person: function () {
+                        return person;
+                    }
+                }
+            })
+        }
     })
-    .controller('BusinessPeopleController', function ($routeParams, apiPerson) {
+    .controller('BusinessPeopleController', function ($routeParams, apiPerson, $modal) {
         var vm = this;
         apiPerson.getByRelationshipType('Business',function (people) {
             vm.people = people;
         })
+
+        vm.deletePerson = function (id, person) {
+            apiPerson.deletePeople(person.ID, function (personID) {
+                console.log(vm.people[id]);
+                delete vm.people[id];
+            })
+        }
+
+        vm.personDetails = function (person) {
+            var modalInstance = $modal.open({
+                templateUrl: '/Angular/views/peopleModal.html',
+                controller: 'peopleModalController',
+                controllerAs: 'personDetails',
+                size: 'lg',
+                backdrop: false,
+                resolve: {
+                    person: function () {
+                        return person;
+                    }
+                }
+            })
+        }
     })
-    .controller('OtherPeopleController', function ($routeParams, apiPerson) {
+    .controller('OtherPeopleController', function ($routeParams, apiPerson, $modal) {
         var vm = this;
         apiPerson.getByRelationshipType('Other',function (people) {
             vm.people = people;
         })
+
+        vm.deletePerson = function (id, person) {
+            apiPerson.deletePeople(person.ID, function (personID) {
+                console.log(vm.people[id]);
+                delete vm.people[id];
+            })
+        }
+
+        vm.personDetails = function (person) {
+            var modalInstance = $modal.open({
+                templateUrl: '/Angular/views/peopleModal.html',
+                controller: 'peopleModalController',
+                controllerAs: 'personDetails',
+                size: 'lg',
+                backdrop: false,
+                resolve: {
+                    person: function () {
+                        return person;
+                    }
+                }
+            })
+        }
     })
     .controller('peopleModalController', function (person, $scope, $modalInstance, apiPerson, apiMemory, apiNote,apiImage,uploadImage) {
         var vm = this;
