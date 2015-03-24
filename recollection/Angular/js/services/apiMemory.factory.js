@@ -37,10 +37,22 @@
             })
         }
 
+        function _putMemory(memory,cb) {
+            var url = API + 'Memories/' + USERID + '/Update/' + memory.ID;
+            $http.put(url, memory)
+            .success(function () {
+                cb();
+            })
+            .error(function (err) {
+                console.log('edit memory error',err);
+            })
+        }
+
         return {
             getPersonMemories: _getPersonMemories,
             postPersonMemory: _postPersonMemory,
-            deleteMemory: _deleteMemory
+            deleteMemory: _deleteMemory,
+            putMemory: _putMemory
         };
     });
 })();

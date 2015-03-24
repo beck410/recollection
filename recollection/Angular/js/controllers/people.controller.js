@@ -79,6 +79,7 @@
         vm.personFormVisible = false;
         vm.editPerson = { ID: person.ID };
         vm.editMessageVisible = false;
+        vm.editMemory = {};
 
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
@@ -188,10 +189,23 @@
             }
         }
 
-        vm.showEdit = function (type) {
-            console.log('edit mem clicked');
+        vm.showEdit = function (type, obj) {
             if (type === 'memory') {
                 vm.editMessageVisible = true;
+                vm.editMemory = obj;
+            }
+        }
+
+        vm.edit = function (type) {
+            console.log('edit clicked');
+            if (type === 'memory') {
+                console.log(vm.editMemory);
+                apiMemory.putMemory(vm.editMemory, function () {
+                    apiMemory.getPersonMemories(person.ID, function (memories) {
+                        vm.memories = memories;
+                        vm.editMessageVisible = false;
+                    })
+                })
             }
         }
     })
