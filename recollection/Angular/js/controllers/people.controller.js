@@ -77,7 +77,8 @@
         vm.newNote = { PersId: person.ID };
         vm.newImage = { PersID: person.ID };
         vm.personFormVisible = false;
-        vm.editPerson = { ID: person.ID};
+        vm.editPerson = { ID: person.ID };
+        vm.editMessageVisible = false;
 
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
@@ -129,26 +130,18 @@
         }
 
         vm.addNewImage = function () {
-            apiImage.postPersonImage(vm.newImage, function (image) {
-                console.log('image added to db: ' + image );
-                if (vm.files) {
-                    uploadImage.uploadToS3(vm.files, person.ID, vm.fileName, function (fileLink) {
-                        vm.newImage.ImageLink = fileLink;
-                        console.log('file uploaded to s3: ' + fileLink);
-                        apiImage.getPersonImages(person.ID,function(images){
-                            vm.newestImage = images[0];
-                            console.log('newest image: ' + vm.newestImage);
-                        })
-                        var id = vm.newestImage.ID;
-                        apiImage.editPersonImage(id, vm.newImage, function () {
-                            console.log('db image edited');
-                            apiImage.getPersonImages(person.ID, function (images) {
-                                vm.images = images;
-                            })
+            if (vm.files) {
+                uploadImage.uploadToS3(vm.files, person.ID, vm.fileName, function (fileLink) {
+                    vm.newImage.ImageLink = fileLink;
+                    apiImage.postPersonImage(vm.newImage, function (image) {
+                        vm.newImage = { PersID: person.ID }
+                        vm.files = null;
+                        apiImage.getPersonImages(person.ID, function (images) {
+                            vm.images = images;
                         })
                     })
-                }
-            })
+                })
+            }
         }
 
         vm.fileSelected = function (event) {
@@ -192,6 +185,13 @@
                         vm.notes = notes;
                     })
                 })
+            }
+        }
+
+        vm.showEdit = function (type) {
+            console.log('edit mem clicked');
+            if (type === 'memory') {
+                vm.editMessageVisible = true;
             }
         }
     })

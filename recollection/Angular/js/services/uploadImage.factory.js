@@ -4,10 +4,7 @@
     .factory('uploadImage', function ($upload, USERID) {
 
         function _uploadToS3(filesArray, persID, fileName, cb) {
-            console.log(fileName);
-            console.log('persID: ' + persID );
             var file = filesArray[0];
-            console.log(file);
 
             $upload.upload({
                 url: 'https://recollectionimages.s3.amazonaws.com',
@@ -20,7 +17,7 @@
                     signature: 'GTY+MahjpwnuywHMfz/UQD9G+nc='
                 },
                 fields: {
-                 key: fileName
+                 key: persID + '/' + fileName
                 },
                 file: file
             })

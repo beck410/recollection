@@ -265,10 +265,11 @@ namespace recollection.Controllers
         image_repo.Add(image);
         return new HttpResponseMessage(HttpStatusCode.OK);
       } 
-      //GET: api/Recollection/Images/Person/placeID
+      //GET: api/Recollection/Images/Person/
       [HttpPost]
-      [Route("Images/{UserID}/Person/{id}")]
-      public HttpResponseMessage PostPersonImages(int id) {
+      [Route("Images/{UserID}")]
+      public HttpResponseMessage PostPersonImages([FromBody] Image image) {
+        image_repo.Add(image);
         return new HttpResponseMessage(HttpStatusCode.OK);
       } 
       //GET: api/Recollection/Image/ID

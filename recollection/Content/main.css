@@ -165,10 +165,19 @@ nav ul {
     margin-top: 10px;
     margin-bottom: 10px; }
     .person-details-wrapper ul li {
-      padding-top: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       position: relative; }
       .person-details-wrapper ul li span {
         float: right; }
+      .person-details-wrapper ul li .details-edit {
+        background: #666;
+        padding: 5px;
+        border-radius: 10px;
+        color: white;
+        z-index: 1000;
+        position: relative;
+        right: 60px; }
     .person-details-wrapper ul li:nth-child(3n+1) {
       clear: left; }
       .person-details-wrapper ul li:nth-child(3n+1) img {

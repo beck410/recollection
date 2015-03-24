@@ -57,9 +57,13 @@
         <ul class="memory-list">
             <li ng-repeat="(id,memory) in personDetails.memories">
                 <div>
-                    {{memory.Message}}
-                <span class="details details-edit" ng-click="personDetails.edit('memory', memory)">Edit</span> 
-                <span class="details-delete" ng-click="personDetails.delete('memory', id, memory)">X</span>
+                    <span ng-hide="personDetails.editMessageVisible">{{memory.Message}}</span>
+                    <form ng-show="personDetails.editMessageVisible" ng-submit="personDetials.edit('memory',memory)">
+                        <input type="text" value="{{memory.Message}}" />
+                        <input type="submit" />
+                    </form>
+                    <span class="details details-edit" ng-click="personDetails.showEdit('memory')">Edit</span> 
+                    <span class="details-delete" ng-click="personDetails.delete('memory', id, memory)">X</span>
                 </div>
             </li>
         </ul>
@@ -99,7 +103,7 @@
                     <div class="form-group">
                         <label class="control-label">Upload Image: </label>
                         <img ng-show="personDetails.files[0].dataUrl" ng-src="{{personDetails.files[0].dataUrl}}" />
-                        <input tyoe="file" ng-model="personDetails.files" ng-file-select ng-file-change="personDetails.fileSelected($event)" accept="images/*" />
+                        <input type="file" ng-model="personDetails.files" ng-file-select ng-file-change="personDetails.fileSelected($event)" accept="images/*" />
                     </div>
                     <div>
                         <label class="control-label">Caption: </label>

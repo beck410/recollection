@@ -31,11 +31,18 @@
         margin-bottom: 10px;
 
         li {
-            padding-top: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             position: relative;
 
             span {
                 float:right;
+            }
+
+            .details-edit {
+                @include edit-shape;
+                position: relative;
+                right: 60px;
             }
         }
 

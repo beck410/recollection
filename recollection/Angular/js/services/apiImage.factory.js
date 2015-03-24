@@ -16,7 +16,7 @@
         }
 
         function _postPersonImage(image, cb) {
-            var url = API + 'Images/' + USERID + '/Person/' + image.PersID;
+            var url = API + 'Images/' + USERID;
             $http.post(url,image)
             .success(function () {
                 cb(image);
