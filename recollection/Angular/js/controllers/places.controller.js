@@ -43,17 +43,12 @@
             }
         }
 
-        //var place = {
-        //    "ID": 6,
-        //    "Name": "The Shack",
-        //    "Address": "LA, Florida"
-        //}
-        //apiFactory.putPlace(place, function(place) {
-        //    console.log(place);
-        //}
-
-        //apiFactory.deletePlace(4, function () {
-        //});
-
+        vm.deletePlace = function (id, place) {
+            apiPlace.deletePlace(place.ID, function (placeID) {
+                apiPlace.getPlaces(function(places) {
+                    vm.places = places;
+                })
+            })
+        }
     })
 })();
