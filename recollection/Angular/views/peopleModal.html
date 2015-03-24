@@ -129,8 +129,10 @@
         </accordion>
         <ul class="image-list cf">
             <li ng-repeat="(id,image) in personDetails.images" class="col-md-4">
+                <button class="img-delete" ng-click="personDetails.delete('image',id,image)">X</button>
                 <div class="img-wrapper"><img ng-src="{{image.ImageLink}}" /></div>
-                <div>{{image.Caption}}-{{image.DateOfImage | monthDayYear}}</div>
+                <div class="img-caption">{{image.Caption}}</div>
+                <div class="img-caption">{{image.DateOfImage | monthDayYear}}</div>
             </li>
         </ul>
     </div>

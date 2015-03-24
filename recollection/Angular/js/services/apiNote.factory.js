@@ -5,7 +5,6 @@
        
         function _getPersonNotes(personID, cb) {
             var url = API + 'Notes/' + USERID + '/Person/' + personID;
-            console.log(url);
             $http.get(url)
             .success(function (obj) {
                 cb(obj.Data.notes);

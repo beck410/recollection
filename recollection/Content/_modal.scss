@@ -24,6 +24,13 @@
         z-index: 1000;
     }
 
+    .img-caption {
+        background: #222;
+        color: white;
+        padding: 3px;
+        text-align: center;
+    }
+
     .person-details {
     }
 
@@ -68,6 +75,11 @@
         padding-left: 10px;
         margin-top: 10px;
     } 
+
+    .img-delete {
+        @include delete-shape;
+        border: none;
+    }
 }
 
 @media screen and (min-width: 768px) {

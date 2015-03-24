@@ -93,11 +93,9 @@
 
         apiImage.getPersonImages(person.ID, function (images) {
             vm.images = images
-            console.log(images);
         })
 
         vm.cancel = function () {
-            console.log('working');
             $modalInstance.dismiss('cancel');
         };
 
@@ -186,6 +184,14 @@
                 apiNote.deleteNote(obj.ID, function (note) {
                     apiNote.getPersonNotes(person.ID, function (notes){
                         vm.notes = notes;
+                    })
+                })
+            }
+
+            if (type == 'image') {
+                apiImage.deleteImage(obj.ID, function () {
+                    apiImage.getPersonImages(person.ID, function (images){
+                        vm.images = images;
                     })
                 })
             }

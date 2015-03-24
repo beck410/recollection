@@ -5,7 +5,6 @@
        
         function _getPersonImages(personID, cb) {
             var url = API + 'Images/' + USERID + '/Person/' + personID;
-            console.log(url);
             $http.get(url)
             .success(function (obj) {
                 cb(obj.Data.images);
@@ -37,10 +36,23 @@
             })
         }
 
+        function _deleteImage(id, cb) {
+            var url = API + 'Images/' + USERID + '/Delete/' + id;
+            console.log(url);
+            $http.delete(url)
+            .success(function () {
+              cb()
+            })
+            .error(function (err) {
+                console.log("delete images error: ",err);
+            })
+        }
+
         return {
             getPersonImages: _getPersonImages,
             postPersonImage: _postPersonImage,
-            editPersonImage: _editPersonImage
+            editPersonImage: _editPersonImage,
+            deleteImage: _deleteImage
         };
     });
 })();

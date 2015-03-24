@@ -289,9 +289,9 @@ namespace recollection.Controllers
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
 
-      //DELETE: api/Recollection/Images/Delete/ID
+      //DELETE: api/Recollection/Images/USERID/Delete/ID
       [HttpDelete]
-      [Route("Images/Delete/{id}")]
+      [Route("Images/{UserID}/Delete/{id}")]
       public HttpResponseMessage DeleteImage(int id) {
         image_repo.Delete(id);
         return new HttpResponseMessage(HttpStatusCode.OK);
