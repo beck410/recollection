@@ -5,7 +5,7 @@
             <accordion-heading>
                 Add New Person 
             </accordion-heading>
-            <form name="people-list-add-form" ng-submit="people.addNewPerson()">
+            <form name="people-list-add-form" id="add-person-form" ng-submit="people.addNewPerson()">
                 <div class="form-group">
                     <label class="control-label">Relationship Type: </label>
                     <select ng-model="people.newPerson.RelationshipType">

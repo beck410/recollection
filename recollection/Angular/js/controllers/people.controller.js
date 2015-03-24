@@ -7,14 +7,14 @@
 
         vm.clearForm = function () {
             vm.newPerson = { UserID: USERID };
-            console.log("qefewqf");
+            vm.files = null;
+            vm.fileName = null;
         }
 
         vm.fileSelected = function (event) {
             uploadImage.setThumbnail(vm.files[0], function (fileName,base64) {
                 vm.fileName = fileName;
                 vm.files[0].dataUrl = base64;
-                $scope.$apply();
             })
         }
 
