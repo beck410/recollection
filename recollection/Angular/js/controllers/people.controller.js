@@ -40,8 +40,9 @@
 
         vm.deletePerson = function (id, person) {
             apiPerson.deletePeople(person.ID, function (personID) {
-                console.log(vm.people[id]);
-                delete vm.people[id];
+                apiPerson.getPeople(function (people) {
+                    vm.people = people;
+                })
             })
         }
 
@@ -95,9 +96,10 @@
         })
 
        vm.deletePerson = function (id, person) {
-            apiPerson.deletePeople(person.ID, function (personID) {
-                console.log(vm.people[id]);
-                delete vm.people[id];
+           apiPerson.deletePeople(person.ID, function (personID) {
+                apiPerson.getByRelationshipType('Friends',function (people) {
+                    vm.people = people;
+                })
             })
         }
 
@@ -124,8 +126,9 @@
 
         vm.deletePerson = function (id, person) {
             apiPerson.deletePeople(person.ID, function (personID) {
-                console.log(vm.people[id]);
-                delete vm.people[id];
+                apiPerson.getByRelationshipType('Business',function (people) {
+                    vm.people = people;
+                })
             })
         }
 
@@ -152,8 +155,9 @@
 
         vm.deletePerson = function (id, person) {
             apiPerson.deletePeople(person.ID, function (personID) {
-                console.log(vm.people[id]);
-                delete vm.people[id];
+                apiPerson.getByRelationshipType('Other',function (people) {
+                    vm.people = people;
+                })
             })
         }
 
