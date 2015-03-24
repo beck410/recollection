@@ -38,10 +38,22 @@
             })
         }
 
+        function _putNote(note,cb) {
+            var url = API + 'Notes/' + USERID + '/Update/' + note.ID;
+            $http.put(url, note)
+            .success(function () {
+                cb();
+            })
+            .error(function (err) {
+                console.log('edit note error',err);
+            })
+        }
+
         return {
             getPersonNotes: _getPersonNotes,
             postPersonNote: _postPersonNote,
-            deleteNote: _deleteNote
+            deleteNote: _deleteNote,
+            putNote: _putNote
         };
     });
 })();

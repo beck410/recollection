@@ -78,8 +78,10 @@
         vm.newImage = { PersID: person.ID };
         vm.personFormVisible = false;
         vm.editPerson = { ID: person.ID };
-        vm.editMessageVisible = false;
+        vm.editMemoryVisible = false;
         vm.editMemory = {};
+        vm.editNoteVisible = false;
+        vm.editNote = {};
 
         apiMemory.getPersonMemories(person.ID, function (memories) {
             vm.memories = memories;
@@ -191,19 +193,32 @@
 
         vm.showEdit = function (type, obj) {
             if (type === 'memory') {
-                vm.editMessageVisible = true;
+                vm.editMemoryVisible = true;
                 vm.editMemory = obj;
+            }
+
+            if (type == 'note') {
+                vm.editNoteVisible = true;
+                vm.editNote = obj;
             }
         }
 
         vm.edit = function (type) {
             console.log('edit clicked');
             if (type === 'memory') {
-                console.log(vm.editMemory);
                 apiMemory.putMemory(vm.editMemory, function () {
                     apiMemory.getPersonMemories(person.ID, function (memories) {
                         vm.memories = memories;
-                        vm.editMessageVisible = false;
+                        vm.editMemoryVisible = false;
+                    })
+                })
+            }
+
+            if (type === 'note') {
+                apiNote.putNote(vm.editNote, function () {
+                    apiNote.getPersonNotes(person.ID, function (notes) {
+                        vm.notes = notes;
+                        vm.editNoteVisible = false;
                     })
                 })
             }

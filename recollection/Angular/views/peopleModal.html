@@ -54,8 +54,7 @@
                 </form>
             </accordion-group>
         </accordion>
-
-        <form class="edit-form" ng-show="personDetails.editMessageVisible" ng-submit="personDetails.edit('memory')">
+        <form class="edit-form" ng-show="personDetails.editMemoryVisible" ng-submit="personDetails.edit('memory')">
                 <input type="text" ng-model="personDetails.editMemory.Message" value="{{memory.Message}}" />
                 <input type="submit" value="Update"/>
         </form>       
@@ -64,8 +63,8 @@
                 <div class="col-md-11">{{memory.Message}}</div>        
                 <div class="col-md-1">
                     <span class="details-delete" ng-click="personDetails.delete('memory', id, memory)">X</span>
-                    <button class="edit-memory-btn" ng-click="personDetails.showEdit('memory', memory)" ng-hide="personDetails.editMessageVisible">Edit</button> 
-                    <button class="edit-memory-btn" ng-show="personDetails.editMessageVisible" ng-click="personDetails.editMessageVisible = false">Cancel</button>
+                    <button class="edit-btn" ng-click="personDetails.showEdit('memory', memory)" ng-hide="personDetails.editMemoryVisible">Edit</button> 
+                    <button class="edit-btn" ng-show="personDetails.editMemoryVisible" ng-click="personDetails.editMessageVisible = false">Cancel</button>
                 </div>
             </li>
         </ul>
@@ -87,10 +86,18 @@
                 </form>
             </accordion-group>
         </accordion>
+        <form class="edit-form" ng-show="personDetails.editNoteVisible" ng-submit="personDetails.edit('note')">
+                <input type="text" ng-model="personDetails.editNote.Message" value="{{note.Message}}" />
+                <input type="submit" value="Update"/>
+        </form> 
         <ul class="note-list">
             <li ng-repeat="(id,note) in personDetails.notes">
-                <div class="col-md-11">{{note.Message}}</div>
-                <span class="details-delete" ng-click="personDetails.delete('note', id, note)">X</span>
+                <div class="col-md-11">{{note.Message}}</div>        
+                <div class="col-md-1">
+                    <span class="details-delete" ng-click="personDetails.delete('note', id, note)">X</span>
+                    <button class="edit-btn" ng-click="personDetails.showEdit('note', note)" ng-hide="personDetails.editNoteVisible">Edit</button> 
+                    <button class="edit-btn" ng-show="personDetails.editNoteVisible" ng-click="personDetails.editNoteVisible = false">Cancel</button>
+                </div>
             </li>
         </ul>
     </div>

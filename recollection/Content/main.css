@@ -142,7 +142,7 @@ nav ul {
     position: absolute;
     right: 50px;
     z-index: 1000; }
-  .person-details-wrapper .edit-memory-btn {
+  .person-details-wrapper .edit-btn {
     position: absolute;
     right: 65%; }
   .person-details-wrapper .edit-form {
