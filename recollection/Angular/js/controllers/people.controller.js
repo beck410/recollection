@@ -1,7 +1,7 @@
 ﻿; (function () {
     'use strict';
     angular.module('recollection')
-    .controller('peopleController', function ($routeParams, USERID, $location) {
+    .controller('peopleController', function ($routeParams, USERID, $location, uploadImage, apiImage, apiPerson) {
         var vm = this;
         vm.newPerson = { UserID: USERID };
 
@@ -10,11 +10,26 @@
             console.log("qefewqf");
         }
 
-        vm.addNewPerson = function (){
-            apiPerson.postPeople(vm.newPerson, function () {
-                vm.newPerson = { UserID: USERID }
-                $location.path('/People/All');
+        vm.fileSelected = function (event) {
+            uploadImage.setThumbnail(vm.files[0], function (fileName,base64) {
+                vm.fileName = fileName;
+                vm.files[0].dataUrl = base64;
+                $scope.$apply();
             })
+        }
+
+        vm.addNewPerson = function(){
+            if (vm.files) {
+                uploadImage.uploadToS3(vm.files,USERID, vm.fileName, function (fileLink) {
+                    vm.newPerson.MainImage = fileLink;
+                    apiPerson.postPeople(vm.newPerson, function () {
+                        vm.newPerson = { UserID: USERID }
+                        $location.path('/People/All');
+                    })
+                })
+            } else {
+                console.log('no image added');
+            }
         }
     })
     .controller('allPeopleController', function ($routeParams, apiPerson,$location,$modal) {
