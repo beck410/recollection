@@ -61,11 +61,35 @@
         }
 
     })
-    .controller('FamilyPeopleController', function ($routeParams, apiPerson) {
+    .controller('FamilyPeopleController', function ($routeParams, apiPerson,$modal) {
         var vm = this;
         apiPerson.getByRelationshipType('Family',function (people) {
             vm.people = people;
         })
+
+        vm.deletePerson = function (id, person) {
+            apiPerson.deletePeople(person.ID, function (personID) {
+                console.log(vm.people[id]);
+                delete vm.people[id];
+            })
+        }
+
+        vm.personDetails = function (person) {
+            var modalInstance = $modal.open({
+                templateUrl: '/Angular/views/peopleModal.html',
+                controller: 'peopleModalController',
+                controllerAs: 'personDetails',
+                size: 'lg',
+                backdrop: false,
+                resolve: {
+                    person: function () {
+                        return person;
+                    }
+                }
+            })
+        }
+
+
     })
     .controller('FriendsPeopleController', function ($routeParams, apiPerson) {
         var vm = this;
