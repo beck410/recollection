@@ -73,6 +73,24 @@ namespace recollection.Controllers
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
 
+      [HttpGet]
+      [Route("Persons/{userID}/Search/{searchString}")]
+      public System.Web.Mvc.JsonResult GetBySearch(string userID,string searchString) {
+        var people = person_repo.getPersonBySearch(userID, searchString);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { people };
+        return json;
+      }
+
+      [HttpGet]
+      [Route("Places/{userID}/Search/{searchString}")]
+      public System.Web.Mvc.JsonResult GetPlaceBySearch(string userID,string searchString) {
+        var places = place_repo.getPlaceBySearch(userID, searchString);
+        var json = new System.Web.Mvc.JsonResult();
+        json.Data = new { places };
+        return json;
+      }
+
       //PLACES
      // GET: /api/Recollection/Places/userID
       [HttpGet]

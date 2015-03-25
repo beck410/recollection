@@ -18,6 +18,11 @@ namespace recollection.repos {
       return _dbContext.Persons.Where(x => x.ID == id).First<Person>();
     }
 
+    public List<Person> getPersonBySearch(string userID, string match) {
+      var matches = _dbContext.Persons.Where(c => c.UserID == userID).Where(p => p.Name.Contains(match));
+      return matches.ToList();
+    }
+
     public List<Person> GetAllByUserId(string userID) {
       return _dbContext.Persons.Where(c => c.UserID == userID).ToList();
     }

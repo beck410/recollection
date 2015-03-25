@@ -59,11 +59,6 @@
             })
          }
 
-         //function _getById(id, cb) {
-             //var url = API + 'persons/' + USERID + id;
-             //$http.get()
-         //}
-
         return {
             getPeople: _getPeople,
             postPeople: _postPeople,

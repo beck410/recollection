@@ -56,5 +56,10 @@ namespace recollection.repos {
     public List<Place> All() {
       return _dbContext.Places.ToList();
     }
+
+    public List<Place> getPlaceBySearch(string userID, string match) {
+      var matches = _dbContext.Places.Where(c => c.UserID == userID).Where(p => p.Name.Contains(match));
+      return matches.ToList();
+    }
   }
 }

@@ -46,6 +46,8 @@
                 console.log('delete place err',err);
             })
         }
+
+
         return {
             getPlaces: _getPlaces,
             postPlace: _postPlace,
