@@ -128,5 +128,65 @@
                 })
             })
         }
+
+        vm.showEdit = function (type, obj) {
+            if (type === 'memory') {
+                vm.editMemoryVisible = true;
+                vm.editMemory = obj;
+            }
+
+            if (type == 'note') {
+                vm.editNoteVisible = true;
+                vm.editNote = obj;
+            }
+        }
+
+        vm.edit = function (type) {
+            console.log('edit clicked');
+            if (type === 'memory') {
+                apiMemory.putMemory(vm.editMemory, function () {
+                    apiMemory.getPlaceMemories(place.ID, function (memories) {
+                        vm.memories = memories;
+                        vm.editMemoryVisible = false;
+                    })
+                })
+            }
+
+            if (type === 'note') {
+                apiNote.putNote(vm.editNote, function () {
+                    apiNote.getPlaceNotes(place.ID, function (notes) {
+                        vm.notes = notes;
+                        vm.editNoteVisible = false;
+                    })
+                })
+            }
+        }
+
+        vm.delete = function (type, index, obj) {
+            console.log('clicked');
+            if (type === "memory") {
+                apiMemory.deleteMemory(obj.ID, function (memory) {
+                    apiMemory.getPlaceMemories(place.ID, function (memories) {
+                        vm.memories = memories;
+                    })
+                });
+            }
+
+            if (type == 'note') {
+                apiNote.deleteNote(obj.ID, function (note) {
+                    apiNote.getPlaceNotes(place.ID, function (notes){
+                        vm.notes = notes;
+                    })
+                })
+            }
+
+            if (type == 'image') {
+                apiImage.deleteImage(obj.ID, function () {
+                    apiImage.getPlaceImages(place.ID, function (images){
+                        vm.images = images;
+                    })
+                })
+            }
+        }
     })
 })();
