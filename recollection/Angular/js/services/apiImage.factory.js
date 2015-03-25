@@ -25,6 +25,28 @@
             }) 
         }
 
+        function _getPlaceImages(placeID, cb) {
+            var url = API + 'Images/' + USERID + '/Place/' + placeID;
+            $http.get(url)
+            .success(function (obj) {
+                cb(obj.Data.images);
+            })
+            .error(function (err) {
+                console.log('get person images error: ', err);
+            })
+        }
+
+        function _postPlaceImage(image, cb) {
+            var url = API + 'Images/' + USERID;
+            $http.post(url,image)
+            .success(function () {
+                cb(image);
+            })
+            .error(function (err) {
+                console.log('post memory error: ',err);
+            }) 
+        }
+
         function _editPersonImage(id,image,cb) {
             var url = API + 'Images/' + USERID + '/Update/' + id;
             $http.put(url, image)
@@ -50,7 +72,9 @@
 
         return {
             getPersonImages: _getPersonImages,
+            getPlaceImages: _getPlaceImages,
             postPersonImage: _postPersonImage,
+            postPlaceImage: _postPlaceImage,
             editPersonImage: _editPersonImage,
             deleteImage: _deleteImage
         };

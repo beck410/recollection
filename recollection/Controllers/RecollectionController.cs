@@ -242,7 +242,7 @@ namespace recollection.Controllers
       //IMAGES
       //GET: api/Recollection/Images/Place/placeID
       [HttpGet]
-      [Route("Images/Place/{id}")]
+      [Route("Images/{UserID}/Place/{id}")]
       public System.Web.Mvc.JsonResult PlaceImages(int id) {
         var images = image_repo.GetPlaceImages(id);
         var json = new System.Web.Mvc.JsonResult();

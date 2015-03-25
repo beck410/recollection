@@ -66,7 +66,7 @@
             })
         }
     })
-    .controller('placeModalController', function (place, $scope, $modalInstance, apiNote, apiPlace, apiMemory) {
+    .controller('placeModalController', function (place, $scope, $modalInstance, uploadImage, apiImage, apiNote, apiPlace, apiMemory) {
         var vm = this;
         vm.place = place;
         vm.newMemory = { LocationID: place.ID };
@@ -85,6 +85,10 @@
 
         apiNote.getPlaceNotes(place.ID, function (notes){
             vm.notes = notes
+        })
+
+        apiImage.getPlaceImages(place.ID, function (images) {
+            vm.images = images
         })
 
         vm.cancel = function () {
@@ -142,6 +146,21 @@
             })
         }
 
+        vm.addNewImage = function () {
+            if (vm.files) {
+                uploadImage.uploadToS3(vm.files, place.ID, vm.fileName, function (fileLink) {
+                    vm.newImage.ImageLink = fileLink;
+                    apiImage.postPlaceImage(vm.newImage, function (image) {
+                        vm.newImage = { LocationID: place.ID }
+                        vm.files = null;
+                        apiImage.getPlaceImages(place.ID, function (images) {
+                            vm.images = images;
+                        })
+                    })
+                })
+            }
+        }
+
         vm.showEdit = function (type, obj) {
             if (type === 'memory') {
                 vm.editMemoryVisible = true;
@@ -173,6 +192,14 @@
                     })
                 })
             }
+        }
+
+        vm.fileSelected = function (event) {
+            uploadImage.setThumbnail(vm.files[0], function (fileName,base64) {
+                vm.fileName = fileName;
+                vm.files[0].dataUrl = base64;
+                $scope.$apply();
+            })
         }
 
         vm.delete = function (type, index, obj) {
