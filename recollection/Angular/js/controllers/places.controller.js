@@ -66,7 +66,7 @@
             })
         }
     })
-    .controller('placeModalController', function (place, $scope, $modalInstance) {
+    .controller('placeModalController', function (place, $scope, $modalInstance, apiPlace) {
         var vm = this;
         vm.place = place;
         vm.newMemory = { LocationID: place.ID };
@@ -82,5 +82,21 @@
         vm.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+
+        vm.showEditPlaceForm = function () {
+            vm.editPlace = place;
+            vm.placeFormVisible = true;
+        }
+
+        vm.editPlaceInDB = function () {
+            apiPlace.putPlace(vm.editPlace, function (newPlaceDetails) {
+                vm.place = vm.editPlace;
+                vm.placeFormVisible = false;
+            })
+        }
+
+        vm.cancelEditPlace = function () {
+            vm.placeFormVisible = false;
+        }
     })
 })();
