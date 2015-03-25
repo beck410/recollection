@@ -246,6 +246,7 @@
     <Content Include="Angular\views\peopleCategory.html" />
     <Content Include="Angular\views\people.html" />
     <Content Include="Angular\views\peopleModal.html" />
+    <Content Include="Angular\views\placeModal.html" />
     <Content Include="Angular\views\places.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

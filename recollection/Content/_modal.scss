@@ -1,4 +1,4 @@
-.person-details-wrapper {
+.person-details-wrapper, .place-details-wrapper {
     .modal-edit-btn {
         @include edit-shape;
         float: right;

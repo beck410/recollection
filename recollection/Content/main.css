@@ -134,9 +134,9 @@ nav ul {
   max-width: 100%;
   max-height: 400px; }
 
-.person-details-wrapper {
+.person-details-wrapper, .place-details-wrapper {
   padding: 10px; }
-  .person-details-wrapper .modal-edit-btn {
+  .person-details-wrapper .modal-edit-btn, .place-details-wrapper .modal-edit-btn {
     background: #666;
     padding: 5px;
     border-radius: 10px;
@@ -146,23 +146,23 @@ nav ul {
     position: absolute;
     right: 50px;
     z-index: 1000; }
-  .person-details-wrapper .edit-btn {
+  .person-details-wrapper .edit-btn, .place-details-wrapper .edit-btn {
     position: absolute;
     right: 65%; }
-  .person-details-wrapper .edit-form {
+  .person-details-wrapper .edit-form, .place-details-wrapper .edit-form {
     margin: 10px 0; }
-  .person-details-wrapper .details-delete {
+  .person-details-wrapper .details-delete, .place-details-wrapper .details-delete {
     background: #C23F38;
     padding: 3px 5px;
     border-radius: 19px;
     color: white;
     z-index: 1000; }
-  .person-details-wrapper .img-caption {
+  .person-details-wrapper .img-caption, .place-details-wrapper .img-caption {
     background: #222;
     color: white;
     padding: 3px;
     text-align: center; }
-  .person-details-wrapper .close {
+  .person-details-wrapper .close, .place-details-wrapper .close {
     background: #222222;
     padding: 5px;
     border-radius: 10px;
@@ -172,19 +172,19 @@ nav ul {
     position: absolute;
     right: 10px;
     z-index: 1000; }
-  .person-details-wrapper img {
+  .person-details-wrapper img, .place-details-wrapper img {
     border: 3px solid #222222;
     max-width: 100%; }
-  .person-details-wrapper ul {
+  .person-details-wrapper ul, .place-details-wrapper ul {
     margin-top: 10px;
     margin-bottom: 10px; }
-    .person-details-wrapper ul li {
+    .person-details-wrapper ul li, .place-details-wrapper ul li {
       padding-top: 20px;
       padding-bottom: 20px;
       position: relative; }
-      .person-details-wrapper ul li span {
+      .person-details-wrapper ul li span, .place-details-wrapper ul li span {
         float: right; }
-      .person-details-wrapper ul li .details-edit {
+      .person-details-wrapper ul li .details-edit, .place-details-wrapper ul li .details-edit {
         background: #666;
         padding: 5px;
         border-radius: 10px;
@@ -192,15 +192,15 @@ nav ul {
         z-index: 1000;
         position: relative;
         right: 60px; }
-    .person-details-wrapper ul li:nth-child(3n+1) {
+    .person-details-wrapper ul li:nth-child(3n+1), .place-details-wrapper ul li:nth-child(3n+1) {
       clear: left; }
-      .person-details-wrapper ul li:nth-child(3n+1) img {
+      .person-details-wrapper ul li:nth-child(3n+1) img, .place-details-wrapper ul li:nth-child(3n+1) img {
         max-height: 180px; }
-  .person-details-wrapper .form-btn {
+  .person-details-wrapper .form-btn, .place-details-wrapper .form-btn {
     display: inline-block;
     padding-left: 10px;
     margin-top: 10px; }
-  .person-details-wrapper .img-delete {
+  .person-details-wrapper .img-delete, .place-details-wrapper .img-delete {
     background: #666666;
     padding: 5px 10px;
     border-radius: 50%;

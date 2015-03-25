@@ -28,7 +28,7 @@
     <ul class="row list">
         <li class="col-md-3" ng-repeat="(id,place) in places.places">
             <div class="delete-btn" ng-click="places.deletePlace(id,place)">X</div>
-            <div class="img-wrapper"><img ng-src="{{place.MainImage}}" class="list-img" alt="place image" /></div>
+            <div class="img-wrapper" ng-click="places.placeDetails(place)"><img ng-src="{{place.MainImage}}" class="list-img" alt="place image" /></div>
             <div class="list-item-name">{{place.Name}}</div>
             <div class="list-item-name">{{place.Address}}</div>
         </li>

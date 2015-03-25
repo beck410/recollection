@@ -1,7 +1,7 @@
 ﻿;(function() {
     'use strict';
     angular.module('recollection')
-    .controller('placesController', function ($routeParams, USERID, apiPlace,$scope,uploadImage) {
+    .controller('placesController', function ($routeParams, $modal, USERID, apiPlace,$scope,uploadImage) {
         var vm = this;
         vm.newPlace = { UserID: USERID }
 
@@ -50,5 +50,37 @@
                 })
             })
         }
+
+        vm.placeDetails = function (place) {
+            var modalInstance = $modal.open({
+                templateUrl: '/Angular/views/placeModal.html',
+                controller: 'placeModalController',
+                controllerAs: 'placeDetails',
+                size: 'lg',
+                backdrop: false,
+                resolve: {
+                    place: function () {
+                        return place;
+                    }
+                }
+            })
+        }
+    })
+    .controller('placeModalController', function (place, $scope, $modalInstance) {
+        var vm = this;
+        vm.place = place;
+        vm.newMemory = { LocationID: place.ID };
+        vm.newNote = { LocationID: place.ID };
+        vm.newImage = { LocationID: place.ID };
+        vm.placeFormVisible = false;
+        vm.editPlace = { ID: place.ID };
+        vm.editMemoryVisible = false;
+        vm.editMemory = {};
+        vm.editNoteVisible = false;
+        vm.editNote = {};
+
+        vm.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
     })
 })();
