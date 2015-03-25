@@ -25,6 +25,28 @@
             }) 
         }
 
+        function _getPlaceNotes(placeID, cb) {
+            var url = API + 'Notes/' + USERID + '/Place/' + placeID;
+            $http.get(url)
+            .success(function (obj) {
+                cb(obj.Data.notes);
+            })
+            .error(function (err) {
+                console.log('get person notes error: ', err);
+            })
+        }
+
+        function _postPlaceNote(note, cb) {
+            var url = API + 'Notes/' + USERID + '/Place/' + note.LocationID;
+            $http.post(url,note)
+            .success(function () {
+                cb();
+            })
+            .error(function (err) {
+                console.log('post memory error: ',err);
+            }) 
+        }
+
         function _deleteNote(id, cb) {
             var url = API + 'Notes/' + USERID + '/Delete/' + id;
             console.log(url);
@@ -51,6 +73,8 @@
         return {
             getPersonNotes: _getPersonNotes,
             postPersonNote: _postPersonNote,
+            getPlaceNotes: _getPlaceNotes,
+            postPlaceNote: _postPlaceNote,
             deleteNote: _deleteNote,
             putNote: _putNote
         };

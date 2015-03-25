@@ -66,7 +66,7 @@
             })
         }
     })
-    .controller('placeModalController', function (place, $scope, $modalInstance, apiPlace, apiMemory) {
+    .controller('placeModalController', function (place, $scope, $modalInstance, apiNote, apiPlace, apiMemory) {
         var vm = this;
         vm.place = place;
         vm.newMemory = { LocationID: place.ID };
@@ -81,6 +81,10 @@
 
         apiMemory.getPlaceMemories(place.ID, function (memories) {
             vm.memories = memories;
+        })
+
+        apiNote.getPlaceNotes(place.ID, function (notes){
+            vm.notes = notes
         })
 
         vm.cancel = function () {
@@ -125,6 +129,15 @@
                 vm.newMemory = { LocationID: place.ID }
                 apiMemory.getPlaceMemories(place.ID, function (memories) {
                     vm.memories = memories;
+                })
+            })
+        }
+
+        vm.addNewNote = function () {
+            apiNote.postPlaceNote(vm.newNote, function () {
+                vm.newNote = { LocationID: place.ID }
+                apiNote.getPlaceNotes(place.ID, function (notes) {
+                    vm.notes = notes;
                 })
             })
         }

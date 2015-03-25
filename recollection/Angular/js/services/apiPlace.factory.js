@@ -7,7 +7,6 @@
             var url = API + 'places/' + USERID
             $http.get(url)
             .success(function (obj) {
-                console.log(obj.Data.place);
                 cb(obj.Data.place);
             })
             .error(function(err){
@@ -19,7 +18,6 @@
             var url = API + 'places/' + USERID;
             $http.post(url,place)
             .success(function (status) {
-                console.log(status);
                 cb(place);
             })
             .error(function (err) {
@@ -31,7 +29,6 @@
             var url = API + 'places/' + USERID + '/UPDATE/' + place.ID;
             $http.put(url, place)
             .success(function(place) {
-                console.log("edit sent");
                 cb(place);
             })
             .error(function (err) {
@@ -43,7 +40,6 @@
             var url = API + 'places/' + USERID + '/DELETE/' + id;
             $http.delete(url)
             .success(function(status) {
-                console.log(status);
                 cb();
             })
             .error(function(err) {
