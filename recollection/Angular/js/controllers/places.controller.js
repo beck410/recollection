@@ -66,7 +66,7 @@
             })
         }
     })
-    .controller('placeModalController', function (place, $scope, $modalInstance, apiPlace) {
+    .controller('placeModalController', function (place, $scope, $modalInstance, apiPlace, apiMemory) {
         var vm = this;
         vm.place = place;
         vm.newMemory = { LocationID: place.ID };
@@ -78,6 +78,10 @@
         vm.editMemory = {};
         vm.editNoteVisible = false;
         vm.editNote = {};
+
+        apiMemory.getPlaceMemories(place.ID, function (memories) {
+            vm.memories = memories;
+        })
 
         vm.cancel = function () {
             $modalInstance.dismiss('cancel');
@@ -97,6 +101,32 @@
 
         vm.cancelEditPlace = function () {
             vm.placeFormVisible = false;
+        }
+
+        vm.clearForm = function (type) {
+            if (type === 'memory') {
+                vm.newMemory = { LocationID: place.ID };
+                return;
+            }
+
+            if (type === 'note') {
+                vm.newNote = { LocationID: place.ID };
+                return;
+            }
+
+            if(type === 'image'){
+                vm.newImage = {LocationID: place.ID};
+            }
+            vm.newNote = { LocationID: place.ID };
+        }
+
+        vm.addNewMemory = function () {
+            apiMemory.postPlaceMemory(vm.newMemory, function () {
+                vm.newMemory = { LocationID: place.ID }
+                apiMemory.getPlaceMemories(place.ID, function (memories) {
+                    vm.memories = memories;
+                })
+            })
         }
     })
 })();

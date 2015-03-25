@@ -14,8 +14,30 @@
             })
         }
 
+        function _getPlaceMemories(personID, cb) {
+            var url = API + 'Memories/' + USERID + '/Place/' + personID;
+            $http.get(url)
+            .success(function (obj) {
+                cb(obj.Data.notes);
+            })
+            .error(function(err){
+                console.log('get person memories error: ',err);
+            })
+        }
+
         function _postPersonMemory(memory,cb) {
             var url = API + 'Memories/' + USERID + '/Person/' + memory.PersID;
+            $http.post(url,memory)
+            .success(function () {
+                cb();
+            })
+            .error(function (err) {
+                console.log('post memory error: ',err);
+            })
+        }
+
+        function _postPlaceMemory(memory,cb) {
+            var url = API + 'Memories/' + USERID + '/Place/' + memory.PersID;
             $http.post(url,memory)
             .success(function () {
                 cb();
@@ -50,7 +72,9 @@
 
         return {
             getPersonMemories: _getPersonMemories,
+            getPlaceMemories: _getPlaceMemories,
             postPersonMemory: _postPersonMemory,
+            postPlaceMemory: _postPlaceMemory,
             deleteMemory: _deleteMemory,
             putMemory: _putMemory
         };
