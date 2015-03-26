@@ -3,6 +3,12 @@
 }
 
 <div class="landing-container">
-    @Html.ActionLink("My Memories", "Index", "App")
-    <p>Recollection is a simple app that keeps track of memories, people and places that are important to you.</p>
+    <div class="col-md-6">
+        <p>Recollection is a simple app that keeps track of memories, people and places that are important to you. An easy-to-use interface makes it simple to add the people and places that are important to you.</p>
+    </div>
+    <div class="col-md-6">
+        <p>To start collecting your memories @Html.ActionLink("Register Here", "Register", "Account")</p>
+        <p>Already have a profile? @Html.ActionLink("Login Here","Login","Account")</p>
+        <p>Already Logged In? Go To @Html.ActionLink("My Recollection App","Index","App")</p>
+    </div>
 </div>

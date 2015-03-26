@@ -18,7 +18,8 @@ nav ul {
 .body-content .landing-container {
   width: 100%;
   height: auto;
-  padding: 10px; }
+  padding: 10px;
+  min-height: 400px; }
 
 .account-wrapper {
   padding: 10px; }
@@ -72,7 +73,7 @@ nav ul {
   background: url("Images/landing-header(2).jpg") no-repeat;
   height: 240px; }
 
-.nav-bar {
+.navbar {
   border-radius: 0; }
 
 .navbar-inverse {
@@ -82,13 +83,16 @@ nav ul {
     background: rgba(128, 128, 128, 0.7);
     margin: 20px;
     color: white;
-    font-size: 70px; }
+    font-size: 70px;
+    padding: 10px;
+    border-radius: 5px; }
   .navbar-inverse .login-modal {
     float: right;
     background: rgba(128, 128, 128, 0.6);
     -webkit-padding-start: 0;
     margin-top: 10px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    border-radius: 5px; }
 
 .navbar-inverse .navbar-nav > li > a {
   color: white; }
