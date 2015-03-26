@@ -1,3 +1,8 @@
-
+.dashboard-container {
+  padding: 15px; }
+  .dashboard-container form {
+    margin: 20px 0; }
+    .dashboard-container form input {
+      display: inline-block; }
 
 /*# sourceMappingURL=dashboard.css.map */

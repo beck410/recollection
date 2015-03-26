@@ -105,6 +105,14 @@ namespace recollection.tests.RepoTests {
       Assert.AreEqual("Father", newPaul.Relationship);
     }
 
+    //[TestMethod]
+    //public void PersonTestGetByString() {
+    //  string searchString = "Pete";
+    //  List<Person> matches = person_repo.getPersonBySearch(searchString);
+    //  Assert.AreEqual(1,matches.Count);
+    //  Assert.AreEqual("Peter Smith",matches.ToArray()[0].Name);
+    //}
+
     [TestMethod]
     public void PersonTestGetByRelationshipType() {
       Person sue = new Person { Name = "Sue Thompson", UserID = user.Id, Birthday = new DateTime(1950, 05, 07), Address = "103 Fake Street", Phone = "1234567890", Relationship = "neighbour", RelationshipType = "Friend"};

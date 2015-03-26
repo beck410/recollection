@@ -1,14 +1,34 @@
-﻿<div>
+﻿<div class="dashboard-container">
+    <h1>Search</h1>
     <form ng-submit="db.searchForPeople()">
         <label class="control-label">Search People:</label>
         <input type="text" class="form-control" name="search-people" ng-model="db.peopleSearchString"/>
-        <input type="submit" value="Search" />
+        <input class="submit-btn" type="submit" value="Search" />
     </form>
     <form ng-submit="db.searchForPlaces()">
         <label class="control-label">Search Places:</label>
         <input class="form-control" type="text" name="search-places" ng-model="db.placeSearchString"/>
-        <input type="submit" value="Search" />
+        <input class="submit-btn" type="submit" value="Search" />
     </form>
 
-    <div></div>
+    <div class="search-term" ng-show="db.searchTerm">You Searched For: <span>{{db.searchTerm}}</span></div>
+
+    <div class="search-people-container">
+        <ul class="list cf">
+            <li class="col-md-3" ng-repeat="(id,person) in db.searchPeopleResults">
+                <div class="img-wrapper"><img ng-click="db.personDetails(person)" ng-src="{{person.MainImage}}" class="list-img" alt="people image" /></div>
+                <div class="list-item-name">{{person.Name}}</div> 
+                <div class="list-item-name">{{person.Relationship}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="search-place-container">
+        <ul class="list">
+            <li class="col-md-3" ng-repeat="(id,place) in db.searchPlaceResults">
+                <div class="img-wrapper"><img ng-click="db.placeDetails(place)" ng-src="{{place.MainImage}}" class="list-img" alt="place image" /></div>
+                <div class="list-item-name">{{place.Name}}</div> 
+                <div class="list-item-name">{{place.Address}}</div>
+            </li>
+        </ul>
+    </div>
 </div>

@@ -40,7 +40,7 @@ nav ul {
 
 .app-wrapper {
   background: #fff;
-  min-height: 200px; }
+  min-height: 400px; }
 
 /**
  * For modern browsers
@@ -96,26 +96,36 @@ nav ul {
 .body-content {
   background: white; }
 
-.list-wrapper {
+.dashboard-container {
+  padding: 15px; }
+  .dashboard-container form {
+    margin: 20px 0; }
+    .dashboard-container form input {
+      display: inline-block; }
+  .dashboard-container .search-term {
+    font-weight: 700;
+    font-size: 1.5em; }
+
+.list-wrapper, .search-place-container, .search-people-container {
   padding-left: 10px; }
-  .list-wrapper h1 {
+  .list-wrapper h1, .search-place-container h1, .search-people-container h1 {
     padding-left: 10px; }
-  .list-wrapper .list {
+  .list-wrapper .list, .search-place-container .list, .search-people-container .list {
     list-style-type: none;
     text-align: center;
     margin-top: 10px; }
-    .list-wrapper .list .list-img {
+    .list-wrapper .list .list-img, .search-place-container .list .list-img, .search-people-container .list .list-img {
       max-height: 200px;
       max-width: 100%; }
-    .list-wrapper .list .list-item-name {
+    .list-wrapper .list .list-item-name, .search-place-container .list .list-item-name, .search-people-container .list .list-item-name {
       color: white;
       background: #222222; }
-    .list-wrapper .list li {
+    .list-wrapper .list li, .search-place-container .list li, .search-people-container .list li {
       padding-top: 10px;
       position: relative; }
-    .list-wrapper .list li:nth-child(4n+1) {
+    .list-wrapper .list li:nth-child(4n+1), .search-place-container .list li:nth-child(4n+1), .search-people-container .list li:nth-child(4n+1) {
       clear: left; }
-    .list-wrapper .list .delete-btn {
+    .list-wrapper .list .delete-btn, .search-place-container .list .delete-btn, .search-people-container .list .delete-btn {
       background: #666666;
       padding: 5px 10px;
       border-radius: 50%;
@@ -214,6 +224,13 @@ nav ul {
 @media screen and (min-width: 768px) {
   .modal-dialog {
     width: 800px; } }
+.people-list-wrapper .people-options {
+  margin-top: 20px; }
+  .people-list-wrapper .people-options .btn-primary {
+    border-color: #ccc;
+    background: #222; }
+  .people-list-wrapper .people-options .btn-primary:hover {
+    background: #808080; }
 .people-list-wrapper #add-person-form img {
   max-width: 100%;
   max-height: 400px; }

@@ -1,0 +1,15 @@
+.dashboard-container {
+    padding: 15px;
+
+    form {
+        margin: 20px 0;
+        input {
+            display: inline-block;
+        }
+    }
+
+    .search-term {
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+}

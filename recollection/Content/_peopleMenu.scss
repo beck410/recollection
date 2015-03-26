@@ -1,4 +1,18 @@
 .people-list-wrapper {
+
+    .people-options {
+        margin-top: 20px;
+
+        .btn-primary {
+            border-color: #ccc;
+            background: #222;
+        }
+
+        .btn-primary:hover {
+            background: #808080;
+        } 
+    }
+
     #add-person-form {
         img {
             max-width: 100%;

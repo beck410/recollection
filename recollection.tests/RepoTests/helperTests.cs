@@ -36,6 +36,7 @@ namespace recollection.tests.RepoTests {
 
       people.ForEach(c => person_repo.Add(c));
 
+      var peter = context.Persons.ToList();
       int peterId = context.Persons.Where(c => c.Name == "Peter Smith").First().ID;
       int maryId = context.Persons.Where(c => c.Name == "Mary Smith").First().ID;
 
