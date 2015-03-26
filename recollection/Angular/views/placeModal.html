@@ -1,0 +1,124 @@
+﻿<div class="place-details-wrapper">
+    <div class="modal-edit-btn edit" ng-click="placeDetails.showEditPlaceForm()">Edit</div>
+    <div class="modal-close-btn close" ng-click="placeDetails.cancel()">X</div>
+    <div class="place-details-overview row">
+        <div class="col-md-6">
+            <img ng-src="{{placeDetails.place.MainImage}}">
+        </div>
+        <div ng-hide="placeDetails.placeFormVisible" class="col-md-6 place-details">
+            <h1>{{placeDetails.place.Name}}</h1>
+            <div><strong>Address </strong>{{placeDetails.place.Address}}</div>
+        </div>
+         <form ng-show="placeDetails.placeFormVisible" ng-submit="placeDetails.editPlaceInDB()" class="col-md-6">
+            <div>
+                <label class="control-label">Name: </label>
+                <input type="text" class="form-control" ng-model="placeDetails.editPlace.Name" />
+            </div>
+            <div>
+                <label class="control-label">Address </label>
+                <input type="text" class="form-control" ng-model="placeDetails.editPlace.Address" />
+                <input class="btn form-btn" type="submit" value="Edit Place">
+                <button class="btn form-btn" ng-click="placeDetails.cancelEditPlace()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="place-memories">
+        <h2>Memories</h2>
+        <accordion>
+            <accordion-group>
+                <accordion-heading>
+                    + Add New Memory
+                </accordion-heading>
+                <form name="memory-list-add-form" ng-submit="placeDetails.addNewMemory()">
+                    <div>
+                        <label class="control-label">Memory: </label>
+                        <input type="text" class="form-control" ng-model="placeDetails.newMemory.Message" />
+                    </div>
+                    <input class="btn form-btn" type="submit" value="Add Memory">
+                    <button class="btn form-btn" ng-click="placeDetails.clearForm('memory')">Clear</button>
+                </form>
+            </accordion-group>
+        </accordion>
+        <form class="edit-form" ng-show="placeDetails.editMemoryVisible" ng-submit="placeDetails.edit('memory')">
+                <input type="text" ng-model="placeDetails.editMemory.Message" value="{{memory.Message}}" />
+                <input type="submit" value="Update"/>
+        </form>       
+        <ul class="memory-list">
+            <li ng-repeat="(id,memory) in placeDetails.memories" class="row">
+                <div class="col-md-11">{{memory.Message}}</div>        
+                <div class="col-md-1">
+                    <span class="details-delete" ng-click="placeDetails.delete('memory', id, memory)">X</span>
+                    <button class="edit-btn" ng-click="placeDetails.showEdit('memory', memory)" ng-hide="placeDetails.editMemoryVisible">Edit</button> 
+                    <button class="edit-btn" ng-show="placeDetails.editMemoryVisible" ng-click="placeDetails.editMessageVisible = false">Cancel</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="place-notes">
+        <h2>Notes</h2>
+        <accordion>
+            <accordion-group>
+                <accordion-heading>
+                    + Add New Note
+                </accordion-heading>
+                <form name="note-list-add-form" ng-submit="placeDetails.addNewNote()">
+                    <div>
+                        <label class="control-label">Note: </label>
+                        <input type="text" class="form-control" ng-model="placeDetails.newNote.Message" />
+                    </div>
+                    <input class="btn form-btn" type="submit" value="Add Note">
+                    <button class="btn form-btn" ng-click="placeDetails.clearForm('note')">Clear</button>
+                </form>
+            </accordion-group>
+        </accordion>
+        <form class="edit-form" ng-show="placeDetails.editNoteVisible" ng-submit="placeDetails.edit('note')">
+                <input type="text" ng-model="placeDetails.editNote.Message" value="{{note.Message}}" />
+                <input type="submit" value="Update"/>
+        </form> 
+        <ul class="note-list">
+            <li ng-repeat="(id,note) in placeDetails.notes">
+                <div class="col-md-11">{{note.Message}}</div>        
+                <div class="col-md-1">
+                    <span class="details-delete" ng-click="placeDetails.delete('note', id, note)">X</span>
+                    <button class="edit-btn" ng-click="placeDetails.showEdit('note', note)" ng-hide="placeDetails.editNoteVisible">Edit</button> 
+                    <button class="edit-btn" ng-show="placeDetails.editNoteVisible" ng-click="placeDetails.editNoteVisible = false">Cancel</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="place-images">
+        <h2>Images</h2>
+        <accordion>
+            <accordion-group>
+                <accordion-heading>
+                    + Add New Image
+                </accordion-heading>
+                <form name="image-list-add-form" ng-submit="placeDetails.addNewImage()">
+                    <div class="form-group">
+                        <label class="control-label">Upload Image: </label>
+                        <img ng-show="placeDetails.files[0].dataUrl" ng-src="{{placeDetails.files[0].dataUrl}}" />
+                        <input type="file" ng-model="placeDetails.files" ng-file-select ng-file-change="placeDetails.fileSelected($event)" accept="images/*" />
+                    </div>
+                    <div>
+                        <label class="control-label">Caption: </label>
+                        <input type="text" class="form-control" ng-model="placeDetails.newImage.Caption" />
+                    </div>
+                    <div>
+                        <label class="control-label">Date of Image: </label>
+                        <datepicker ng-model="placeDetails.newImage.DateOfImage" min-date="minDate" show-weeks="true"></datepicker>
+                    </div>
+                    <input class="btn form-btn" type="submit" value="Add Image">
+                    <button class="btn form-btn" ng-click="placeDetails.clearForm('image')">Clear</button>
+                </form>
+            </accordion-group>
+        </accordion>
+        <ul class="image-list cf">
+            <li ng-repeat="(id,image) in placeDetails.images" class="col-md-4">
+                <button class="img-delete" ng-click="placeDetails.delete('image',id,image)">X</button>
+                <div class="img-wrapper"><img ng-src="{{image.ImageLink}}" /></div>
+                <div class="img-caption">{{image.Caption}}</div>
+                <div class="img-caption">{{image.DateOfImage | monthDayYear}}</div>
+            </li>
+        </ul>
+    </div>
+</div>
