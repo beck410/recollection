@@ -1,3 +1,26 @@
 .body-content {
     background: white;
 }
+
+.first-landing-row {
+     background: whitesmoke;
+     height: 300px;
+     padding: 10px;
+
+     img {
+         border: 3px solid #ccc;
+     }
+}
+
+.home-links-wrapper {
+    margin: 0 auto;
+    padding: 10px;
+    background: #ccc;
+    box-shadow: 5px 5px 3px #888888;
+    border-radius: 10px;
+
+    h2 {
+        margin-top: 0;
+    }
+}
+

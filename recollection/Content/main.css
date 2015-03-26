@@ -100,6 +100,22 @@ nav ul {
 .body-content {
   background: white; }
 
+.first-landing-row {
+  background: whitesmoke;
+  height: 300px;
+  padding: 10px; }
+  .first-landing-row img {
+    border: 3px solid #ccc; }
+
+.home-links-wrapper {
+  margin: 0 auto;
+  padding: 10px;
+  background: #ccc;
+  box-shadow: 5px 5px 3px #888888;
+  border-radius: 10px; }
+  .home-links-wrapper h2 {
+    margin-top: 0; }
+
 .dashboard-container {
   padding: 15px; }
   .dashboard-container form {

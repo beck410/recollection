@@ -254,6 +254,7 @@
       <DependentUpon>_dashboard.scss</DependentUpon>
     </Content>
     <Content Include="Content\Images\landing-header%282%29.jpg" />
+    <Content Include="Content\Images\memory-tree-cropped.jpg" />
     <Content Include="Content\Images\recollection-header-lg.jpg" />
     <Content Include="Content\main.css">
       <DependentUpon>main.scss</DependentUpon>
