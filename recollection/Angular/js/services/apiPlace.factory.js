@@ -47,12 +47,23 @@
             })
         }
 
+         function _searchForPlaces(searchString, cb) {
+             var url = API + 'Places/' + USERID + '/Search/' + searchString;
+             $http.get(url)
+             .success(function (obj) {
+                 cb(obj.Data.places)
+             })
+             .error(function (err) {
+                 console.log('search for place error: ',err);
+             })
+         }
 
         return {
             getPlaces: _getPlaces,
             postPlace: _postPlace,
             putPlace: _putPlace,
             deletePlace: _deletePlace,
+            searchForPlaces: _searchForPlaces
         };
     });
 })();

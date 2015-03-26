@@ -59,12 +59,24 @@
             })
          }
 
+         function _searchForPeople(searchString, cb) {
+             var url = API + 'persons/' + USERID + '/Search/' + searchString;
+             $http.get(url)
+             .success(function (obj) {
+                 cb(obj.Data.people)
+             })
+             .error(function (err) {
+                 console.log('search for people error: ',err);
+             })
+         }
+
         return {
             getPeople: _getPeople,
             postPeople: _postPeople,
             putPerson: _putPeople,
             deletePeople: _deletePeople,
-            getByRelationshipType: _getByRelationshipType
+            getByRelationshipType: _getByRelationshipType,
+            searchForPeople: _searchForPeople
         };
     });
 })();

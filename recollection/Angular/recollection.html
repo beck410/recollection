@@ -1,11 +1,13 @@
 ﻿<div>
-    <form ng-submit="">
+    <form ng-submit="db.searchForPeople()">
         <label class="control-label">Search People:</label>
-        <input type="text" class="form-control" name="search-people" value="Type Person here" />
+        <input type="text" class="form-control" name="search-people" ng-model="db.peopleSearchString"/>
+        <input type="submit" value="Search" />
     </form>
-    <form ng-submit="">
+    <form ng-submit="db.searchForPlaces()">
         <label class="control-label">Search Places:</label>
-        <input class="form-control" type="text" name="search-places" value="Type Place here" />
+        <input class="form-control" type="text" name="search-places" ng-model="db.placeSearchString"/>
+        <input type="submit" value="Search" />
     </form>
 
     <div></div>
